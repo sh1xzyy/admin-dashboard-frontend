@@ -1,0 +1,58 @@
+.logoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.authWrapper {
+  gap: 14px;
+}
+
+.commonWrapper {
+  gap: 20px;
+}
+
+.commonLogoTextWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.authLogoText,
+.commonLogoText {
+  font-weight: 600;
+  font-size: 20px;
+  color: #1d1e21;
+}
+
+.authLogoText {
+  letter-spacing: -0.03em;
+}
+
+.commonLogoText {
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(29, 30, 33, 0.4);
+}
+
+@media screen and (min-width: 768px) {
+  .commonWrapper {
+    gap: 32px;
+  }
+  .commonLogoText {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .commonWrapper {
+    gap: 60px;
+  }
+  .commonLogoText {
+    line-height: 1.16667;
+  }
+}
