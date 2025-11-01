@@ -7,76 +7,31 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 1.28571;
-    color: var(--color-white);
+    color: #ffffff;
     border-radius: 60px;
     height: 44px;
-    background-color: var(--color-green);
+    background-color: #59b17a;
     &:hover {
-      background-color: var(--color-dark-green);
+      background-color: #3f945f;
+    }
+    &:disabled {
+      color: rgba(29, 30, 33, 0.4);
+      background-color: rgba(29, 30, 33, 0.1);
     }
   }
   &.secondary {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-    text-align: center;
-    color: var(--color-green);
-    border-radius: 30px;
-    height: 38px;
-    background: rgba(89, 177, 122, 0.1);
-    &:hover {
-      color: var(--color-white);
-      background-color: var(--color-green);
-    }
-  }
-  &.neutral {
+    height: 44px;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.28571;
     color: rgba(29, 30, 33, 0.4);
+    border: 1px solid transparent;
     border-radius: 60px;
-    height: 44px;
+    background-color: rgba(29, 30, 33, 0.1);
     &:hover {
-      background-color: rgba(29, 30, 33, 0.25);
+      color: #59b17a;
+      border-color: #59b17a;
+      background-color: #fff;
     }
-  }
-  &.outline {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.125;
-    color: var(--color-green);
-    border: 1px solid rgba(89, 177, 122, 0.5);
-    border-radius: 30px;
-    height: 34px;
-    &:hover {
-      color: var(--color-white);
-      background-color: var(--color-green);
-    }
-  }
-  &.logout {
-    height: 40px;
-    width: 107px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1;
-    color: #f1f1f1;
-    border: 1px solid rgba(241, 241, 241, 0.5);
-    border-radius: 60px;
-    background-color: transparent;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .button.logout {
-    height: 44px;
-    width: 115px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .button.logout {
-    color: #59b17a;
-    border-color: #59b17a;
   }
 }

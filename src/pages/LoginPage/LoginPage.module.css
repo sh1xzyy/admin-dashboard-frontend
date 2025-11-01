@@ -1,0 +1,28 @@
+.pageWrapper {
+  padding-top: 106px;
+}
+
+.logoWrapper {
+  padding-top: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .pageWrapper {
+    padding-top: 168px;
+  }
+  .logoWrapper {
+    padding-top: 28px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .pageWrapper {
+    padding-top: 226px;
+    display: grid;
+    grid-template-columns: 614px 1fr;
+    gap: 150px;
+  }
+  .logoWrapper {
+    padding-top: 29px;
+  }
+}

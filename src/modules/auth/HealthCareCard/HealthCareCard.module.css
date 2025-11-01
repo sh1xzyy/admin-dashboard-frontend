@@ -1,0 +1,44 @@
+.card {
+  position: relative;
+  margin-bottom: 20px;
+  max-width: 320px;
+}
+
+.description {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.21429;
+  color: #1d1e21;
+
+  span {
+    color: #59b17a;
+  }
+}
+
+.pill {
+  position: absolute;
+  top: -56px;
+  right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    margin-bottom: 54px;
+    max-width: 614px;
+  }
+  .description {
+    font-size: 54px;
+    line-height: 1.11111;
+  }
+  .pill {
+    position: absolute;
+    top: -103px;
+    right: 47px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card {
+    margin-bottom: 0;
+  }
+}
