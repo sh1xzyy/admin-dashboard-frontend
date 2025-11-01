@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import css from "./Logo.module.css";
+import { Link } from "react-router-dom";
+
 const Logo = ({ variant }) => {
   const currentPage = "Dashboard";
   const adminsEmail = "vendor@gmail.com";
@@ -47,7 +49,7 @@ const Logo = ({ variant }) => {
           <span className={css.commonLogoText}>Medicine store</span>
           <div className={css.subtitle}>
             <span>{currentPage}</span>
-            <span>|</span>
+            <span>&nbsp;|&nbsp;</span>
             <span>{adminsEmail}</span>
           </div>
         </div>
