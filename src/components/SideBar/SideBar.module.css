@@ -1,0 +1,95 @@
+@media screen and (max-width: 1440px) {
+  .overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29, 30, 33, 0.3);
+  }
+}
+
+.sideBar {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  width: 78px;
+  height: 100%;
+  padding: 92px 20px 20px 20px;
+  border-right: 1px solid rgba(29, 30, 33, 0.1);
+  border-top: 1px solid rgba(29, 30, 33, 0.1);
+  background-color: #f7f8fa;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 14px;
+  background-color: transparent;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.link.active .icon {
+  color: #59b17a;
+}
+
+.icon {
+  color: #dcdddf;
+  transition: color 250ms linear;
+}
+
+.logoutButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #59b17a;
+  box-shadow: 0 -1px 7px 0 rgba(71, 71, 71, 0.05);
+}
+
+@media screen and (min-width: 768px) {
+  .sideBar {
+    width: 84px;
+    padding-top: 100px;
+  }
+  .link {
+    width: 44px;
+    height: 44px;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .logoutButton {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sideBar {
+    margin-top: 79px;
+    width: 80px;
+    padding-top: 40px;
+  }
+}
