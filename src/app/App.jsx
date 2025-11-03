@@ -1,9 +1,10 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import PrivateRoutes from "../shared/routes/PrivateRoutes";
 import RestrictedRoutes from "../shared/routes/RestrictedRoutes";
 import Loader from "../shared/ui/Loader/Loader";
 import SideBar from "../components/SideBar/SideBar";
+import Header from "../components/Header/Header";
 
 const DashboardPage = lazy(() =>
   import("../pages/DashboardPage/DashboardPage")
@@ -20,9 +21,11 @@ const SuppliersPage = lazy(() =>
 );
 
 function App() {
+  const [isSidePartOpen, setIsSidePartOpen] = useState(false);
   return (
     <>
-      <SideBar />
+      <Header setIsSidePartOpen={setIsSidePartOpen} />
+      {isSidePartOpen && <SideBar setIsSidePartOpen={setIsSidePartOpen} />}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route

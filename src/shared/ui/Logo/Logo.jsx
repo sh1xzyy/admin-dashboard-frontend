@@ -2,8 +2,7 @@ import clsx from "clsx";
 import css from "./Logo.module.css";
 import { Link } from "react-router-dom";
 
-const Logo = ({ variant }) => {
-  const currentPage = "Dashboard";
+const Logo = ({ variant, currentPage }) => {
   const adminsEmail = "vendor@gmail.com";
 
   return (
