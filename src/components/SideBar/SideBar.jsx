@@ -45,53 +45,47 @@ const SideBar = ({ setIsSidePartOpen }) => {
 
   return (
     <div className={css.overlay}>
-      <div className="container">
-        <div className={css.sideBar}>
-          {windowWidth < 1440 && (
-            <button
-              className={css.closeButton}
-              type="button"
-              onClick={() => setIsSidePartOpen(false)}
-            >
-              <Close
-                className={css.closeIcon}
-                role="img"
-                aria-label="Close icon"
-              />
-            </button>
-          )}
+      <div className={css.sideBar}>
+        {windowWidth < 1440 && (
+          <button
+            className={css.closeButton}
+            type="button"
+            onClick={() => setIsSidePartOpen(false)}
+          >
+            <Close
+              className={css.closeIcon}
+              role="img"
+              aria-label="Close icon"
+            />
+          </button>
+        )}
 
-          <nav className={css.nav}>
-            <ul className={css.navList}>
-              {LINKS.map(({ icon, href }, i) => (
-                <li key={i}>
-                  <NavLink
-                    className={({ isActive }) =>
-                      clsx(css.link, isActive && css.active)
-                    }
-                    to={href}
-                  >
-                    {icon}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
+        <nav className={css.nav}>
+          <ul className={css.navList}>
+            {LINKS.map(({ icon, href }, i) => (
+              <li key={i}>
+                <NavLink
+                  className={({ isActive }) =>
+                    clsx(css.link, isActive && css.active)
+                  }
+                  to={href}
+                >
+                  {icon}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-          {windowWidth < 1440 && (
-            <button
-              className={css.logoutButton}
-              type="button"
-              onClick={() => console.log("log out")}
-            >
-              <Logout
-                className={css.icon}
-                role="img"
-                aria-label="Logout icon"
-              />
-            </button>
-          )}
-        </div>
+        {windowWidth < 1440 && (
+          <button
+            className={css.logoutButton}
+            type="button"
+            onClick={() => console.log("log out")}
+          >
+            <Logout className={css.icon} role="img" aria-label="Logout icon" />
+          </button>
+        )}
       </div>
     </div>
   );

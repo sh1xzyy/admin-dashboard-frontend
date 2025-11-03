@@ -1,7 +1,11 @@
-import React from "react";
+import TableCard from "../../shared/ui/TableCard/TableCard";
 
 const DashboardPage = () => {
-  return <div>DashboardPage</div>;
+  return (
+    <div className="container">
+      <TableCard title="Recent Customers" type="dashboard" />
+    </div>
+  );
 };
 
 export default DashboardPage;

@@ -27,28 +27,30 @@ const Header = ({ setIsSidePartOpen }) => {
     case "/suppliers":
       currentPage = "All suppliers";
       break;
+    default:
+      currentPage = "null";
+      break;
   }
 
-  if (path)
-    return (
-      <div className={css.header}>
-        <div className="container">
-          <div className={css.wrapper}>
-            {windowWidth < 1440 && (
-              <button
-                className={css.openSideBarButton}
-                type="button"
-                onClick={() => setIsSidePartOpen(true)}
-              >
-                <Burger className={css.icon} role="img" aria-label="burger" />
-              </button>
-            )}
+  return (
+    <div className={css.header}>
+      <div className="container">
+        <div className={css.wrapper}>
+          {windowWidth < 1440 && (
+            <button
+              className={css.openSideBarButton}
+              type="button"
+              onClick={() => setIsSidePartOpen(true)}
+            >
+              <Burger className={css.icon} role="img" aria-label="burger" />
+            </button>
+          )}
 
-            <Logo currentPage={currentPage} />
-          </div>
+          <Logo currentPage={currentPage} />
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Header;
