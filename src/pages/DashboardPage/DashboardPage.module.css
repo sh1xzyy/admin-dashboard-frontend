@@ -8,6 +8,13 @@
   gap: 68px;
 }
 
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
 @media screen and (min-width: 768px) {
   .pageWrapper {
     padding: 20px 0 40px 0;
@@ -15,10 +22,17 @@
   .tableWrapper {
     gap: 20px;
   }
+  .cardsWrapper {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 40px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .tableWrapper {
     flex-direction: row;
+  }
+  .cardsWrapper {
+    grid-template-columns: repeat(5, 1fr);
   }
 }

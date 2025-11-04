@@ -1,0 +1,58 @@
+.wrapper {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  background-color: #fff;
+  &.active {
+    border: 1px solid #59b17a;
+  }
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16667;
+  color: rgba(29, 30, 33, 0.4);
+}
+
+.number {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #1d1e21;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding: 14px 18px;
+  }
+
+  .headerWrapper {
+    margin-bottom: 28px;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .text {
+    line-height: 1.5;
+  }
+
+  .number {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
