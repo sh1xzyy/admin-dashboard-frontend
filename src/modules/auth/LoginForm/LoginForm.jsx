@@ -6,9 +6,12 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { loginSchema } from "../schemas/loginSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch } from "react-redux";
+import { loginThunk } from "../../../entities/auth/operations";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -21,13 +24,12 @@ const LoginForm = () => {
 
   const onSubmit = async (values) => {
     try {
-      console.log(values);
-
+      await dispatch(loginThunk(values)).unwrap();
       toast.success(`Welcome back, Test!`);
       reset();
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
-      toast.error(error?.data?.message);
+      toast.error(error);
     }
   };
 

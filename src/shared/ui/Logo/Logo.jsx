@@ -11,7 +11,7 @@ const Logo = ({ variant, currentPage }) => {
         css.logoWrapper,
         variant === "auth" ? css.authWrapper : css.commonWrapper
       )}
-      to="/"
+      to="/dashboard"
     >
       {variant === "auth" ? (
         <picture>

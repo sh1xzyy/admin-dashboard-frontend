@@ -4,7 +4,7 @@
   border-bottom: 1px solid rgba(29, 30, 33, 0.1);
 }
 
-.wrapper {
+.leftSideWrapper {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -15,7 +15,14 @@
 }
 
 @media screen and (min-width: 768px) {
-  .wrapper {
+  .leftSideWrapper {
     gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
   }
 }
