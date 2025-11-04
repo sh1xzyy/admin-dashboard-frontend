@@ -5,43 +5,38 @@ import Pharmacy from "./assets/pharmacy.svg?react";
 import ShoppingCard from "./assets/shopping-cart.svg?react";
 import Users from "./assets/users.svg?react";
 import Close from "./assets/close.svg?react";
-import Logout from "./assets/logout.svg?react";
 import useWindowWidth from "../../shared/hooks/useWindowWidth";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
+import LogoutButton from "../../shared/ui/LogoutButton/LogoutButton";
+
+const LINKS = [
+  {
+    icon: <Grid className={css.icon} role="img" aria-label="Grid" />,
+    href: "/dashboard",
+  },
+  {
+    icon: (
+      <ShoppingCard className={css.icon} role="img" aria-label="ShoppingCard" />
+    ),
+    href: "/orders",
+  },
+  {
+    icon: <FlaskFill className={css.icon} role="img" aria-label="Flask Fill" />,
+    href: "/products",
+  },
+  {
+    icon: <Pharmacy className={css.icon} role="img" aria-label="Pharmacy" />,
+    href: "/customers",
+  },
+  {
+    icon: <Users className={css.icon} role="img" aria-label="Users" />,
+    href: "/suppliers",
+  },
+];
 
 const SideBar = ({ setIsSidePartOpen }) => {
   const { windowWidth } = useWindowWidth();
-  const LINKS = [
-    {
-      icon: <Grid className={css.icon} role="img" aria-label="Grid" />,
-      href: "/dashboard",
-    },
-    {
-      icon: (
-        <ShoppingCard
-          className={css.icon}
-          role="img"
-          aria-label="ShoppingCard"
-        />
-      ),
-      href: "/orders",
-    },
-    {
-      icon: (
-        <FlaskFill className={css.icon} role="img" aria-label="Flask Fill" />
-      ),
-      href: "/products",
-    },
-    {
-      icon: <Pharmacy className={css.icon} role="img" aria-label="Pharmacy" />,
-      href: "/customers",
-    },
-    {
-      icon: <Users className={css.icon} role="img" aria-label="Users" />,
-      href: "/suppliers",
-    },
-  ];
 
   return (
     <div className={css.overlay}>
@@ -77,15 +72,7 @@ const SideBar = ({ setIsSidePartOpen }) => {
           </ul>
         </nav>
 
-        {windowWidth < 1440 && (
-          <button
-            className={css.logoutButton}
-            type="button"
-            onClick={() => console.log("log out")}
-          >
-            <Logout className={css.icon} role="img" aria-label="Logout icon" />
-          </button>
-        )}
+        {windowWidth < 1440 && <LogoutButton />}
       </div>
     </div>
   );
