@@ -23,18 +23,20 @@ const authSlice = createSlice({
     builder
       .addCase(loginThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload.user;
-        state.accessToken = action.payload.accessToken;
+        console.log(action.payload);
+
+        state.user = action.payload.data.user;
+        state.accessToken = action.payload.data.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(refreshThunk.fulfilled, (state, action) => {
-        state.accessToken = action.payload.accessToken;
+        state.accessToken = action.payload.data.accessToken;
       })
       .addCase(logoutThunk.fulfilled, () => {
         return initialState;
       })
       .addCase(getUserInfoThunk.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user = action.payload.data.user;
       })
       .addMatcher(
         isAnyOf(

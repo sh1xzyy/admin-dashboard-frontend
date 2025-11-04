@@ -1,50 +1,9 @@
-import { CUSTOMERS } from "./data/customers";
+import { LABELS } from "./shared/data/labels";
 import css from "./TableCard.module.css";
+import Finances from "./ui/Finances/Finances";
+import RecentCustomers from "./ui/RecentCustomers/RecentCustomers";
 
-const TableCard = ({ title, type }) => {
-  const LABELS = [
-    { type: "dashboard", list: ["Name", "Email", "Spent"] },
-    {
-      type: "orders",
-      list: [
-        "User Info",
-        "Address",
-        "Products",
-        "Order date",
-        "Price",
-        "Status",
-      ],
-    },
-    {
-      type: "products",
-      list: [
-        "Product Info",
-        "Category",
-        "Stock",
-        "Suppliers",
-        "Price",
-        "Action",
-      ],
-    },
-    {
-      type: "suppliers",
-      list: [
-        "Suppliers Info",
-        "Address",
-        "Company",
-        "Delivery date",
-        "Ammount",
-        "Status",
-        "Action",
-      ],
-    },
-    {
-      type: "customers",
-      list: ["User Info", "Email", "Delivery date", "Phone", "Register date"],
-    },
-    { type: "income/expenses", list: ["Today"] },
-  ];
-
+const TableCard = ({ title, data, type }) => {
   const labelsIndex = LABELS.findIndex((item) => item.type === type);
   const headers = LABELS[labelsIndex].list;
 
@@ -67,21 +26,14 @@ const TableCard = ({ title, type }) => {
           </thead>
 
           <tbody>
-            {CUSTOMERS.map((item, i) => (
-              <tr className={css.tr} key={i}>
-                <td className={css.td}>
-                  <div className={css.userInfo}>
-                    <img
-                      className={css.image}
-                      src={item.image}
-                      alt={item.name}
-                    />
-                    <span className={css.text}>{item.name}</span>
-                  </div>
-                </td>
-                <td className={css.td}>{item.email}</td>
-                <td className={css.td}>{item.spent}</td>
-              </tr>
+            {data.map((item) => (
+              <>
+                {type === "dashboard" ? (
+                  <RecentCustomers item={item} />
+                ) : (
+                  <Finances item={item} />
+                )}
+              </>
             ))}
           </tbody>
         </table>
