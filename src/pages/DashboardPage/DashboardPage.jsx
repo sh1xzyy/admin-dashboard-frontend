@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { getDashboardsDataThunk } from "../../entities/dashboard/operations";
 import toast from "react-hot-toast";
 import css from "./DashboardPage.module.css";
+import SmallCard from "../../shared/ui/SmallCard/SmallCard";
 
 const DashboardPage = () => {
   const { allProducts, allSuppliers, allCustomers, recentCustomers, finances } =
@@ -24,6 +25,11 @@ const DashboardPage = () => {
   return (
     <div className={css.pageWrapper}>
       <div className="container">
+        <div className={css.cardsWrapper}>
+          <SmallCard number={allProducts} type="products" />
+          <SmallCard number={allSuppliers} type="suppliers" />
+          <SmallCard number={allCustomers} type="customers" />
+        </div>
         <div className={css.tableWrapper}>
           <TableCard
             title="Recent Customers"
