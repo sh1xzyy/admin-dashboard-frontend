@@ -3,7 +3,7 @@ import { getOrdersThunk } from "./operations";
 
 const initialState = {
   orders: {
-    requiredCustomersData: [{}],
+    requiredCustomersData: [],
     total: 0,
     totalPages: 0,
   },

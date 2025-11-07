@@ -5,6 +5,7 @@ import { getOrdersThunk } from "../../entities/orders/operations";
 import toast from "react-hot-toast";
 import { selectOrders } from "../../entities/orders/selectors";
 import { OrdersForm } from "../../modules/orders";
+import TableCard from "../../shared/ui/TableCard/TableCard";
 
 const OrdersPage = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,12 @@ const OrdersPage = () => {
     <div className={css.page}>
       <div className="container">
         <OrdersForm />
+        <TableCard
+          title="All orders"
+          data={orders.requiredCustomersData}
+          type="orders"
+          totalPages={orders.totalPages}
+        />
       </div>
     </div>
   );
