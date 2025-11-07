@@ -9,7 +9,7 @@ import TableCard from "../../shared/ui/TableCard/TableCard";
 
 const OrdersPage = () => {
   const dispatch = useDispatch();
-  const orders = useSelector(selectOrders);
+  const { orders, totalPages } = useSelector(selectOrders);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -28,9 +28,9 @@ const OrdersPage = () => {
         <OrdersForm />
         <TableCard
           title="All orders"
-          data={orders.requiredCustomersData}
+          data={orders}
           type="orders"
-          totalPages={orders.totalPages}
+          totalPages={totalPages}
         />
       </div>
     </div>

@@ -47,3 +47,16 @@
     border-left: 1px solid rgba(29, 30, 33, 0.1);
   }
 }
+
+@media screen and (min-width: 768px) {
+  .th {
+    height: 58px;
+  }
+  .titleWrapper {
+    padding: 20px;
+  }
+  .title {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}

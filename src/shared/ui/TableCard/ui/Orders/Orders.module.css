@@ -12,7 +12,6 @@
   line-height: 1.16667;
   vertical-align: middle;
   border-right: 1px solid rgba(29, 30, 33, 0.1);
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   &:not(:first-child) {
@@ -89,5 +88,9 @@
     &:not(:first-child) {
       padding-left: 20px;
     }
+  }
+  .photo {
+    width: 36px;
+    height: 36px;
   }
 }
