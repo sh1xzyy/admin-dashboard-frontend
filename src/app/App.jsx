@@ -1,7 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import PrivateRoutes from "../shared/routes/PrivateRoutes";
-import RestrictedRoutes from "../shared/routes/RestrictedRoutes";
+import { Route, Routes } from "react-router-dom";
 import Loader from "../shared/ui/Loader/Loader";
 import SideBar from "../components/SideBar/SideBar";
 import Header from "../components/Header/Header";
@@ -25,17 +23,7 @@ const SuppliersPage = lazy(() =>
 function App() {
   const [isSidePartOpen, setIsSidePartOpen] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(isLoggedIn);
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate("/dashboard");
-    } else {
-      navigate("/login");
-    }
-  }, [isLoggedIn, navigate]);
 
   useEffect(() => {
     (() => {
@@ -49,54 +37,12 @@ function App() {
       {isSidePartOpen && <SideBar setIsSidePartOpen={setIsSidePartOpen} />}
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoutes redirectTo="/dashboard">
-                <LoginPage />
-              </RestrictedRoutes>
-            }
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoutes redirectTo="/login">
-                <DashboardPage />
-              </PrivateRoutes>
-            }
-          />
-          <Route
-            path="/orders"
-            element={
-              <PrivateRoutes redirectTo="/login">
-                <OrdersPage />
-              </PrivateRoutes>
-            }
-          />
-          <Route
-            path="/products"
-            element={
-              <PrivateRoutes redirectTo="/login">
-                <ProductsPage />
-              </PrivateRoutes>
-            }
-          />
-          <Route
-            path="/customers"
-            element={
-              <PrivateRoutes redirectTo="/login">
-                <CustomersPage />
-              </PrivateRoutes>
-            }
-          />
-          <Route
-            path="/suppliers"
-            element={
-              <PrivateRoutes redirectTo="/login">
-                <SuppliersPage />
-              </PrivateRoutes>
-            }
-          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/customers" element={<CustomersPage />} />
+          <Route path="/suppliers" element={<SuppliersPage />} />
         </Routes>
       </Suspense>
     </>
