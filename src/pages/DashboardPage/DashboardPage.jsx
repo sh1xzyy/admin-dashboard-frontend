@@ -3,9 +3,9 @@ import TableCard from "../../shared/ui/TableCard/TableCard";
 import { selectDashboard } from "../../entities/dashboard/selectors";
 import { useEffect } from "react";
 import { getDashboardsDataThunk } from "../../entities/dashboard/operations";
-import toast from "react-hot-toast";
 import css from "./DashboardPage.module.css";
 import SmallCard from "../../shared/ui/SmallCard/SmallCard";
+import toast from "react-hot-toast";
 
 const DashboardPage = () => {
   const { allProducts, allSuppliers, allCustomers, recentCustomers, finances } =

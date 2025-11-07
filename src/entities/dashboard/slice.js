@@ -12,8 +12,8 @@ const initialState = {
   isLoading: false,
 };
 
-const authSlice = createSlice({
-  name: "authSlice",
+const dashboardSlice = createSlice({
+  name: "dashboardSlice",
   initialState,
   extraReducers: (builder) =>
     builder
@@ -34,4 +34,4 @@ const authSlice = createSlice({
       ),
 });
 
-export default authSlice.reducer;
+export default dashboardSlice.reducer;
