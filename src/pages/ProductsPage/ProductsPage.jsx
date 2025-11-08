@@ -5,8 +5,7 @@ import toast from "react-hot-toast";
 import TableCard from "../../shared/ui/TableCard/TableCard";
 import { selectProducts } from "../../entities/products/selectors";
 import { getProductsThunk } from "../../entities/products/operations";
-import { ProductsForm } from "../../modules/products";
-import AddProductButton from "../../modules/products/addProductButton/AddProductButton";
+import { AddProductButton, ProductsForm } from "../../modules/products";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();

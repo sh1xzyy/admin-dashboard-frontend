@@ -1,2 +1,3 @@
 import { ProductsForm } from "./ProductsForm/ProductsForm";
-export { ProductsForm };
+import { AddProductButton } from "./AddProductButton/AddProductButton";
+export { ProductsForm, AddProductButton };
