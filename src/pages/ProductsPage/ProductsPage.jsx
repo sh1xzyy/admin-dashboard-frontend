@@ -6,7 +6,6 @@ import TableCard from "../../shared/ui/TableCard/TableCard";
 import { selectProducts } from "../../entities/products/selectors";
 import { getProductsThunk } from "../../entities/products/operations";
 import { ProductsForm } from "../../modules/products";
-import { Button } from "@blueprintjs/core";
 import AddProductButton from "../../modules/products/addProductButton/AddProductButton";
 
 const ProductsPage = () => {
