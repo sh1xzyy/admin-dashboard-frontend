@@ -2,7 +2,7 @@ import { Button, Dialog } from "@blueprintjs/core";
 import css from "./BaseModal.module.css";
 import CloseIcon from "./assets/close.svg?react";
 import AddProduct from "./ui/AddProduct/AddProduct";
-import UpdateProduct from "./ui/updateProduct/updateProduct";
+import UpdateProduct from "./ui/UpdateProduct/UpdateProduct";
 
 const BaseModal = ({ isOpen, setIsOpen, type }) => {
   const title = {
