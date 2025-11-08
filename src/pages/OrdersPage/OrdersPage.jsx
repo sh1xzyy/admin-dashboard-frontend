@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import css from "./OrdersPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrdersThunk } from "../../entities/orders/operations";
@@ -10,7 +10,7 @@ import TableCard from "../../shared/ui/TableCard/TableCard";
 const OrdersPage = () => {
   const dispatch = useDispatch();
   const { orders, totalPages } = useSelector(selectOrders);
-  const [page, setPage] = useState(1);
+  console.log(orders);
 
   useEffect(() => {
     (() => {

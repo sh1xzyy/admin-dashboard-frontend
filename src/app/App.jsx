@@ -1,11 +1,10 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loader from "../shared/ui/Loader/Loader";
 import SideBar from "../components/SideBar/SideBar";
 import Header from "../components/Header/Header";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../entities/auth/selectors";
-import { refreshThunk } from "../entities/auth/operations";
 
 const DashboardPage = lazy(() =>
   import("../pages/DashboardPage/DashboardPage")
@@ -19,17 +18,20 @@ const CustomersPage = lazy(() =>
 const SuppliersPage = lazy(() =>
   import("../pages/SuppliersPage/SuppliersPage")
 );
+const SharedLayoutPage = lazy(() =>
+  import("../pages/SharedLayoutPage/SharedLayoutPage")
+);
 
 function App() {
   const [isSidePartOpen, setIsSidePartOpen] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    (() => {
-      dispatch(refreshThunk());
-    })();
-  }, [dispatch]);
+  // useEffect(() => {
+  //   (() => {
+  //     dispatch(refreshThunk());
+  //   })();
+  // }, [dispatch]);
 
   return (
     <>
@@ -38,6 +40,7 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<SharedLayoutPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/orders" element={<OrdersPage />} />
           <Route path="/products" element={<ProductsPage />} />

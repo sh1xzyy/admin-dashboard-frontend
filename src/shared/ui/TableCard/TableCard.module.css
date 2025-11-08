@@ -51,6 +51,9 @@
 @media screen and (min-width: 768px) {
   .th {
     height: 58px;
+    &:not(:first-child) {
+      padding-left: 20px;
+    }
   }
   .titleWrapper {
     padding: 20px;

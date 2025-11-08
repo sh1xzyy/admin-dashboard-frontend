@@ -3,6 +3,7 @@ import css from "./TableCard.module.css";
 import DotPagination from "./ui/DotPagination/DotPagination";
 import Finances from "./ui/Finances/Finances";
 import Orders from "./ui/Orders/Orders";
+import Products from "./ui/Products/Products";
 import RecentCustomers from "./ui/RecentCustomers/RecentCustomers";
 
 const TableCard = ({ title, data, type, totalPages }) => {
@@ -36,6 +37,8 @@ const TableCard = ({ title, data, type, totalPages }) => {
                   <Finances item={item} />
                 ) : type === "orders" ? (
                   <Orders item={item} />
+                ) : type === "products" ? (
+                  <Products item={item} />
                 ) : null}
               </>
             ))}
