@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { deleteProductThunk } from "../../../../../entities/products/operations";
 
-const Products = ({ item }) => {
+const Products = ({ item, setIsOpen }) => {
   const dispatch = useDispatch();
 
   const handleDelete = async (id) => {
@@ -27,7 +27,10 @@ const Products = ({ item }) => {
       <td className={css.td}>{item?.price}</td>
       <td className={css.td}>
         <div className={css.actionsWrapper}>
-          <Button className={clsx(css.iconButton, css.edit)}>
+          <Button
+            className={clsx(css.iconButton, css.edit)}
+            onClick={() => setIsOpen(true)}
+          >
             <EditIcon role="img" aria-label="edit icon" />
           </Button>
           <Button

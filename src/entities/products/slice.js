@@ -1,5 +1,10 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { deleteProductThunk, getProductsThunk } from "./operations";
+import {
+  addProductThunk,
+  deleteProductThunk,
+  getProductsThunk,
+  updateProductThunk,
+} from "./operations";
 
 const initialState = {
   products: {
@@ -19,29 +24,38 @@ const productsSlice = createSlice({
         state.isLoading = false;
         state.products = action.payload.data;
       })
+      .addCase(addProductThunk.fulfilled, (state) => {
+        state.isLoading = false;
+        state.products.total += 1;
+      })
       .addCase(deleteProductThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
-
-        state.products.products.filter((item) => item._id !== action.payload);
+        state.products.products = state.products.products.filter(
+          (item) => item._id !== action.payload.data
+        );
+        state.products.total -= 1;
       })
       .addMatcher(
         isAnyOf(
           getProductsThunk.pending,
           deleteProductThunk.pending,
-          (state) => {
-            state.isLoading = true;
-          }
-        )
+          addProductThunk.pending,
+          updateProductThunk.pending
+        ),
+        (state) => {
+          state.isLoading = true;
+        }
       )
       .addMatcher(
         isAnyOf(
           getProductsThunk.rejected,
           deleteProductThunk.rejected,
-          (state) => {
-            state.isLoading = false;
-          }
-        )
+          addProductThunk.rejected,
+          updateProductThunk.rejected
+        ),
+        (state) => {
+          state.isLoading = false;
+        }
       ),
 });
 

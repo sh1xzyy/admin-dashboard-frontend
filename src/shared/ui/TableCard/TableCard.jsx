@@ -6,7 +6,7 @@ import Orders from "./ui/Orders/Orders";
 import Products from "./ui/Products/Products";
 import RecentCustomers from "./ui/RecentCustomers/RecentCustomers";
 
-const TableCard = ({ title, data, type, totalPages }) => {
+const TableCard = ({ title, data, type, totalPages, setIsOpen }) => {
   const labelsIndex = LABELS.findIndex((item) => item.type === type);
   const headers = LABELS[labelsIndex].list;
 
@@ -38,7 +38,7 @@ const TableCard = ({ title, data, type, totalPages }) => {
                 ) : type === "orders" ? (
                   <Orders item={item} />
                 ) : type === "products" ? (
-                  <Products item={item} />
+                  <Products item={item} setIsOpen={setIsOpen} />
                 ) : null}
               </>
             ))}
