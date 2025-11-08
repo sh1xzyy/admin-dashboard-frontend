@@ -67,6 +67,12 @@
   &:not(:first-child) {
     padding-left: 10px;
   }
+  &:nth-child(2) {
+    text-align: left;
+  }
+  &:nth-child(3) {
+    text-align: right;
+  }
 }
 
 .td:last-child {
@@ -88,9 +94,13 @@
 
 @media screen and (min-width: 768px) {
   .tr {
-    height: 51px;
+    height: 65px;
   }
-}
-
-@media screen and (min-width: 1440px) {
+  .td {
+    font-size: 16px;
+    line-height: 1.125;
+    &:not(:first-child) {
+      padding-left: 20px;
+    }
+  }
 }

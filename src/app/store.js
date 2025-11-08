@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../entities/auth/slice.js";
 import dashboardReducer from "../entities/dashboard/slice.js";
 import ordersReducer from "../entities/orders/slice.js";
+import productsReducer from "../entities/products/slice.js";
 import {
   persistStore,
   persistReducer,
@@ -27,6 +28,7 @@ export const store = configureStore({
     auth: persistAuthReducer,
     dashboard: dashboardReducer,
     orders: ordersReducer,
+    products: productsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

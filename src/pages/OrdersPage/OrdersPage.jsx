@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import css from "./OrdersPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrdersThunk } from "../../entities/orders/operations";
@@ -9,8 +9,8 @@ import TableCard from "../../shared/ui/TableCard/TableCard";
 
 const OrdersPage = () => {
   const dispatch = useDispatch();
-  const orders = useSelector(selectOrders);
-  const [page, setPage] = useState(1);
+  const { orders, totalPages } = useSelector(selectOrders);
+  console.log(orders);
 
   useEffect(() => {
     (() => {
@@ -28,9 +28,9 @@ const OrdersPage = () => {
         <OrdersForm />
         <TableCard
           title="All orders"
-          data={orders.requiredCustomersData}
+          data={orders}
           type="orders"
-          totalPages={orders.totalPages}
+          totalPages={totalPages}
         />
       </div>
     </div>

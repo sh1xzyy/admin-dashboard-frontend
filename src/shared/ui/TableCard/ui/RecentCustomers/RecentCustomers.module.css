@@ -35,3 +35,24 @@
   height: 24px;
   border-radius: 50%;
 }
+
+@media screen and (min-width: 768px) {
+  .tr {
+    height: 76px;
+  }
+  .td {
+    font-size: 16px;
+    line-height: 1.125;
+    &:not(:first-child) {
+      padding-left: 20px;
+    }
+  }
+  .photo {
+    width: 36px;
+    height: 36px;
+  }
+  .userInfo {
+    align-items: center;
+    flex-direction: row;
+  }
+}

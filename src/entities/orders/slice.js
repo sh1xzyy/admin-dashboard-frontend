@@ -2,8 +2,8 @@ import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { getOrdersThunk } from "./operations";
 
 const initialState = {
-  orders: {
-    requiredCustomersData: [],
+  ordersData: {
+    orders: [],
     total: 0,
     totalPages: 0,
   },
@@ -17,7 +17,7 @@ const ordersSlice = createSlice({
     builder
       .addCase(getOrdersThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.orders = action.payload.data;
+        state.ordersData = action.payload.data;
       })
 
       .addMatcher(

@@ -1,8 +1,6 @@
 import clsx from "clsx";
 import css from "./Orders.module.css";
 const Orders = ({ item }) => {
-  const { status, price, order_date } = item.order_id;
-
   const cssByStatus = {
     Completed: css.completed,
     Confirmed: css.confirmed,
@@ -14,19 +12,21 @@ const Orders = ({ item }) => {
   };
 
   return (
-    <tr className={css.tr} key={item._id}>
+    <tr className={css.tr} key={item?._id}>
       <td className={css.td}>
         <div className={css.userInfo}>
-          <img className={css.photo} src={item.photo} alt={item.name} />
-          <span className={css.text}>{item.name}</span>
+          <img className={css.photo} src={item?.photo} alt={item?.name} />
+          <span className={css.text}>{item?.name}</span>
         </div>
       </td>
-      <td className={css.td}>{item.address}</td>
-      <td className={css.td}>{item.product_ids}</td>
-      <td className={css.td}>{order_date}</td>
-      <td className={css.td}>{price}</td>
+      <td className={css.td}>{item?.address}</td>
+      <td className={css.td}>{item?.product_ids}</td>
+      <td className={css.td}>{item?.order_id?.order_date}</td>
+      <td className={css.td}>{item?.order_id?.price}</td>
       <td className={css.td}>
-        <div className={clsx(css.label, cssByStatus[status])}>{status}</div>
+        <div className={clsx(css.label, cssByStatus[item?.order_id?.status])}>
+          {item?.order_id?.status}
+        </div>
       </td>
     </tr>
   );

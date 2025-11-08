@@ -1,0 +1,26 @@
+.page {
+  padding: 40px 0 168px 0;
+}
+
+.headerActionsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .page {
+    padding: 50px 0 328px 0;
+  }
+  .headerActionsWrapper {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .page {
+    padding: 75px 0 40px 0;
+  }
+}

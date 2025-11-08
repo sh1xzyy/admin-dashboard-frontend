@@ -65,17 +65,26 @@
   border-right: none;
 }
 
-.userInfo {
+.actionsWrapper {
   display: flex;
-  flex-direction: column;
   gap: 8px;
 }
 
-.photo {
-  object-fit: cover;
-  width: 24px;
-  height: 24px;
+.iconButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  &.edit {
+    border: 1px solid rgba(89, 177, 122, 0.5);
+  }
+  &.trash {
+    border: 1px solid rgba(232, 80, 80, 0.5);
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -88,9 +97,5 @@
     &:not(:first-child) {
       padding-left: 20px;
     }
-  }
-  .photo {
-    width: 36px;
-    height: 36px;
   }
 }
