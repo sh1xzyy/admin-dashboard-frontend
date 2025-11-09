@@ -10,6 +10,7 @@ import BaseModal from "../../shared/ui/BaseModal/BaseModal";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
   const { products, totalPages } = useSelector(selectProducts);
   const [isAddProductModalOpen, setIsAddProductModalOpen] = useState(false);
   const [isEditProductModalOpen, setIsEditProductModalOpen] = useState(false);
@@ -17,12 +18,12 @@ const ProductsPage = () => {
   useEffect(() => {
     (() => {
       try {
-        dispatch(getProductsThunk());
+        dispatch(getProductsThunk({ page }));
       } catch (error) {
         toast.error(error);
       }
     })();
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   return (
     <div className={css.page}>
@@ -47,6 +48,7 @@ const ProductsPage = () => {
           type="products"
           totalPages={totalPages}
           setIsOpen={setIsEditProductModalOpen}
+          setPage={setPage}
         />
       </div>
     </div>

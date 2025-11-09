@@ -8,7 +8,7 @@ import Products from "./ui/Products/Products";
 import RecentCustomers from "./ui/RecentCustomers/RecentCustomers";
 import Suppliers from "./ui/Suppliers/Suppliers";
 
-const TableCard = ({ title, data, type, totalPages, setIsOpen }) => {
+const TableCard = ({ title, data, type, totalPages, setIsOpen, setPage }) => {
   const labelsIndex = LABELS.findIndex((item) => item.type === type);
   const headers = LABELS[labelsIndex].list;
 
@@ -52,7 +52,7 @@ const TableCard = ({ title, data, type, totalPages, setIsOpen }) => {
         </table>
       </div>
 
-      {totalPages > 0 && <DotPagination total={totalPages} />}
+      {totalPages > 0 && <DotPagination total={totalPages} setPage={setPage} />}
     </div>
   );
 };

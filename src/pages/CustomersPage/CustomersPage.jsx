@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import TableCard from "../../shared/ui/TableCard/TableCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import css from "./CustomersPage.module.css";
 import toast from "react-hot-toast";
 import { getCustomersThunk } from "../../entities/customers/operations";
@@ -9,17 +9,18 @@ import { selectCustomers } from "../../entities/customers/selectors";
 
 const CustomersPage = () => {
   const { customers, totalPages } = useSelector(selectCustomers);
+  const [page, setPage] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
       try {
-        await dispatch(getCustomersThunk()).unwrap();
+        await dispatch(getCustomersThunk({ page })).unwrap();
       } catch (error) {
         toast.error(error);
       }
     })();
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   return (
     <div className={css.pageWrapper}>
@@ -30,6 +31,7 @@ const CustomersPage = () => {
           data={customers}
           type="customers"
           totalPages={totalPages}
+          setPage={setPage}
         />
       </div>
     </div>

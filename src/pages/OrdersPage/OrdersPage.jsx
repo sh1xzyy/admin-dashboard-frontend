@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import css from "./OrdersPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrdersThunk } from "../../entities/orders/operations";
@@ -9,18 +9,18 @@ import TableCard from "../../shared/ui/TableCard/TableCard";
 
 const OrdersPage = () => {
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
   const { orders, totalPages } = useSelector(selectOrders);
-  console.log(orders);
 
   useEffect(() => {
     (() => {
       try {
-        dispatch(getOrdersThunk());
+        dispatch(getOrdersThunk({ page }));
       } catch (error) {
         toast.error(error);
       }
     })();
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   return (
     <div className={css.page}>
@@ -31,6 +31,7 @@ const OrdersPage = () => {
           data={orders}
           type="orders"
           totalPages={totalPages}
+          setPage={setPage}
         />
       </div>
     </div>
