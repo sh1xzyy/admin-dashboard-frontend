@@ -1,10 +1,11 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loader from "../shared/ui/Loader/Loader";
 import SideBar from "../components/SideBar/SideBar";
 import Header from "../components/Header/Header";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../entities/auth/selectors";
+import useWindowWidth from "../shared/hooks/useWindowWidth";
 
 const DashboardPage = lazy(() =>
   import("../pages/DashboardPage/DashboardPage")
@@ -23,7 +24,15 @@ const SharedLayoutPage = lazy(() =>
 );
 
 function App() {
-  const [isSidePartOpen, setIsSidePartOpen] = useState(false);
+  const { windowWidth } = useWindowWidth();
+  const [isSidePartOpen, setIsSidePartOpen] = useState(windowWidth >= 1440);
+
+  console.log(isSidePartOpen);
+
+  useEffect(() => {
+    setIsSidePartOpen(windowWidth >= 1440);
+  }, [windowWidth]);
+
   const isLoggedIn = useSelector(selectIsLoggedIn);
   // const dispatch = useDispatch();
 
@@ -36,7 +45,9 @@ function App() {
   return (
     <>
       {isLoggedIn && <Header setIsSidePartOpen={setIsSidePartOpen} />}
-      {isSidePartOpen && <SideBar setIsSidePartOpen={setIsSidePartOpen} />}
+      {isSidePartOpen && isLoggedIn && (
+        <SideBar setIsSidePartOpen={setIsSidePartOpen} />
+      )}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
