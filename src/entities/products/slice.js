@@ -26,7 +26,9 @@ const productsSlice = createSlice({
       })
       .addCase(addProductThunk.fulfilled, (state) => {
         state.isLoading = false;
-        state.products.total += 1;
+      })
+      .addCase(updateProductThunk.fulfilled, (state) => {
+        state.isLoading = false;
       })
       .addCase(deleteProductThunk.fulfilled, (state, action) => {
         state.isLoading = false;

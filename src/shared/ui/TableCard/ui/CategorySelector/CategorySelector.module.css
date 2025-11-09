@@ -36,11 +36,11 @@
 .arrowIcon {
   width: 16px;
   height: 16px;
-  transform: rotate(0deg);
+  transform: rotate(180deg);
   transition: transform 0.3s;
 
   &.arrowOpen {
-    transform: rotate(180deg);
+    transform: rotate(0deg);
   }
 }
 
@@ -85,13 +85,13 @@
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.categoryList {
+.list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.categoryItem {
+.item {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
@@ -102,14 +102,14 @@
   transition: all 0.2s;
 }
 
-.categoryItem:last-child {
+.item:last-child {
   margin-bottom: 0;
 }
 
-.categoryItem:hover {
+.item:hover {
   color: #fff;
 }
 
-.categoryItem:active {
+.item:active {
   background-color: rgba(255, 255, 255, 0.15);
 }

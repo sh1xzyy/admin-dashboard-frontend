@@ -4,22 +4,10 @@ import css from "./CategorySelector.module.css";
 import ArrowIcon from "./assets/arrow.svg?react";
 
 const CategorySelector = forwardRef(
-  ({ value, onChange, onBlur, name, error }, ref) => {
+  ({ value, onChange, onBlur, name, error, list, placeholder }, ref) => {
     const [selectedItem, setSelectedItem] = useState(value || null);
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
-
-    const categories = [
-      "Medicine",
-      "Head",
-      "Hand",
-      "Dental Care",
-      "Skin Care",
-      "Eye Care",
-      "Vitamins & Supplements",
-      "Orthopedic Products",
-      "Baby Care",
-    ];
 
     useEffect(() => {
       const handleClickOutside = (event) => {
@@ -57,7 +45,7 @@ const CategorySelector = forwardRef(
             aria-expanded={isOpen}
             aria-haspopup="listbox"
           >
-            <span>{selectedItem || "Category"}</span>
+            <span>{selectedItem || placeholder}</span>
             <ArrowIcon
               className={clsx(css.arrowIcon, isOpen && css.arrowOpen)}
               role="img"
@@ -76,15 +64,15 @@ const CategorySelector = forwardRef(
             className={clsx(css.dropdownMenu, isOpen && css.menuOpen)}
             role="listbox"
           >
-            <ul className={css.categoryList}>
-              {categories.map((category, idx) => (
+            <ul className={css.list}>
+              {list.map((item, idx) => (
                 <li
                   key={idx}
-                  className={css.categoryItem}
-                  onClick={() => handleItemSelect(category)}
+                  className={css.item}
+                  onClick={() => handleItemSelect(item)}
                   role="option"
                 >
-                  {category}
+                  {item}
                 </li>
               ))}
             </ul>

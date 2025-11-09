@@ -12,6 +12,18 @@ import {
 import toast from "react-hot-toast";
 import { productSchema } from "../schema/productSchema";
 
+const categories = [
+  "Medicine",
+  "Head",
+  "Hand",
+  "Dental Care",
+  "Skin Care",
+  "Eye Care",
+  "Vitamins & Supplements",
+  "Orthopedic Products",
+  "Baby Care",
+];
+
 const UpdateProduct = ({ setIsOpen }) => {
   const dispatch = useDispatch();
   const {
@@ -50,7 +62,12 @@ const UpdateProduct = ({ setIsOpen }) => {
           name="category"
           control={control}
           render={({ field }) => (
-            <CategorySelector {...field} error={errors?.category?.message} />
+            <CategorySelector
+              {...field}
+              error={errors?.category?.message}
+              list={categories}
+              placeholder="Category"
+            />
           )}
         />
         <BaseInput
