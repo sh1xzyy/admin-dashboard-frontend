@@ -106,7 +106,7 @@ select:focus {
   }
 
   .container {
-    padding: 0 40px;
+    padding: 0 40px 0 120px;
   }
 
   .authContainer {

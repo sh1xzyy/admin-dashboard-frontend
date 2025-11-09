@@ -10,6 +10,7 @@ import { selectSuppliers } from "../../entities/suppliers/selectors";
 
 const SuppliersPage = () => {
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
   const { suppliers, totalPages } = useSelector(selectSuppliers);
   const [isAddProductModalOpen, setIsAddProductModalOpen] = useState(false);
   const [isEditProductModalOpen, setIsEditProductModalOpen] = useState(false);
@@ -17,12 +18,12 @@ const SuppliersPage = () => {
   useEffect(() => {
     (() => {
       try {
-        dispatch(getSuppliersThunk());
+        dispatch(getSuppliersThunk({ page }));
       } catch (error) {
         toast.error(error);
       }
     })();
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   return (
     <div className={css.page}>
@@ -47,6 +48,7 @@ const SuppliersPage = () => {
           type="suppliers"
           totalPages={totalPages}
           setIsOpen={setIsEditProductModalOpen}
+          setPage={setPage}
         />
       </div>
     </div>

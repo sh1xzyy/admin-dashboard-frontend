@@ -1,7 +1,41 @@
-import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import TableCard from "../../shared/ui/TableCard/TableCard";
+import { useEffect, useState } from "react";
+import css from "./CustomersPage.module.css";
+import toast from "react-hot-toast";
+import { getCustomersThunk } from "../../entities/customers/operations";
+import { CustomersForm } from "../../modules/customers";
+import { selectCustomers } from "../../entities/customers/selectors";
 
 const CustomersPage = () => {
-  return <div>CustomersPage</div>;
+  const { customers, totalPages } = useSelector(selectCustomers);
+  const [page, setPage] = useState(1);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        await dispatch(getCustomersThunk({ page })).unwrap();
+      } catch (error) {
+        toast.error(error);
+      }
+    })();
+  }, [dispatch, page]);
+
+  return (
+    <div className={css.pageWrapper}>
+      <div className="container">
+        <CustomersForm />
+        <TableCard
+          title="All customers"
+          data={customers}
+          type="customers"
+          totalPages={totalPages}
+          setPage={setPage}
+        />
+      </div>
+    </div>
+  );
 };
 
 export default CustomersPage;

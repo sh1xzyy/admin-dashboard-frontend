@@ -12,4 +12,10 @@
   padding: 0 !important;
   min-width: 16px !important;
   min-height: 16px !important;
+  outline: none;
+  transition: background-color 250ms linear;
+  background-color: #e7f1ed !important;
+  &.active {
+    background-color: #59b17a !important;
+  }
 }

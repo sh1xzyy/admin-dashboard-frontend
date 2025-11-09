@@ -27,11 +27,11 @@ const LINKS = [
   },
   {
     icon: <Pharmacy className={css.icon} role="img" aria-label="Pharmacy" />,
-    href: "/customers",
+    href: "/suppliers",
   },
   {
     icon: <Users className={css.icon} role="img" aria-label="Users" />,
-    href: "/suppliers",
+    href: "/customers",
   },
 ];
 
