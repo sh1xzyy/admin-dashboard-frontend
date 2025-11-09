@@ -1,5 +1,6 @@
 import { LABELS } from "./shared/data/labels";
 import css from "./TableCard.module.css";
+import Customers from "./ui/Customers/Customers";
 import DotPagination from "./ui/DotPagination/DotPagination";
 import Finances from "./ui/Finances/Finances";
 import Orders from "./ui/Orders/Orders";
@@ -42,14 +43,16 @@ const TableCard = ({ title, data, type, totalPages, setIsOpen }) => {
                   <Products item={item} setIsOpen={setIsOpen} />
                 ) : type === "suppliers" ? (
                   <Suppliers item={item} setIsOpen={setIsOpen} />
-                ) : null}
+                ) : (
+                  type === "customers" && <Customers item={item} />
+                )}
               </>
             ))}
           </tbody>
         </table>
       </div>
 
-      {totalPages && <DotPagination total={totalPages} />}
+      {totalPages > 0 && <DotPagination total={totalPages} />}
     </div>
   );
 };
