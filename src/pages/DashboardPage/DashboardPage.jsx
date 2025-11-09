@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import TableCard from "../../shared/ui/TableCard/TableCard";
 import { selectDashboard } from "../../entities/dashboard/selectors";
 import { useEffect } from "react";
-import { getDashboardsDataThunk } from "../../entities/dashboard/operations";
+import { getDashboardsThunk } from "../../entities/dashboard/operations";
 import css from "./DashboardPage.module.css";
 import SmallCard from "../../shared/ui/SmallCard/SmallCard";
 import toast from "react-hot-toast";
@@ -15,7 +15,7 @@ const DashboardPage = () => {
   useEffect(() => {
     (async () => {
       try {
-        await dispatch(getDashboardsDataThunk()).unwrap();
+        await dispatch(getDashboardsThunk()).unwrap();
       } catch (error) {
         toast.error(error);
       }

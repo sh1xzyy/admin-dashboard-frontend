@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { authInstance } from "../../shared/api/authInstance";
 
-export const getDashboardsDataThunk = createAsyncThunk(
+export const getDashboardsThunk = createAsyncThunk(
   "/dashboard",
   async (_, thunkAPI) => {
     try {

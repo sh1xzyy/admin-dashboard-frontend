@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { getDashboardsDataThunk } from "./operations";
+import { getDashboardsThunk } from "./operations";
 
 const initialState = {
   dashboard: {
@@ -17,18 +17,18 @@ const dashboardSlice = createSlice({
   initialState,
   extraReducers: (builder) =>
     builder
-      .addCase(getDashboardsDataThunk.fulfilled, (state, action) => {
+      .addCase(getDashboardsThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.dashboard = action.payload.data;
       })
 
       .addMatcher(
-        isAnyOf(getDashboardsDataThunk.pending, (state) => {
+        isAnyOf(getDashboardsThunk.pending, (state) => {
           state.isLoading = true;
         })
       )
       .addMatcher(
-        isAnyOf(getDashboardsDataThunk.rejected, (state) => {
+        isAnyOf(getDashboardsThunk.rejected, (state) => {
           state.isLoading = false;
         })
       ),
