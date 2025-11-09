@@ -1,0 +1,39 @@
+.inputsWrapper {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.dropdown-wrapper select.bp5-html-select {
+  width: 220px;
+  height: 40px;
+  border-radius: 50px;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+  color: #666;
+  padding-left: 15px;
+  background-color: #fff;
+}
+
+.dropdown-wrapper select.bp5-html-select:focus {
+  outline: none;
+  border-color: #b0b0b0;
+}
+
+.bp5-html-select::after {
+  color: #333;
+}
+
+@media screen and (min-width: 768px) {
+  .inputsWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .actionButtons {
+    max-width: 274px;
+  }
+}

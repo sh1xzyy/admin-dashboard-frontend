@@ -5,6 +5,7 @@ import Finances from "./ui/Finances/Finances";
 import Orders from "./ui/Orders/Orders";
 import Products from "./ui/Products/Products";
 import RecentCustomers from "./ui/RecentCustomers/RecentCustomers";
+import Suppliers from "./ui/Suppliers/Suppliers";
 
 const TableCard = ({ title, data, type, totalPages, setIsOpen }) => {
   const labelsIndex = LABELS.findIndex((item) => item.type === type);
@@ -39,6 +40,8 @@ const TableCard = ({ title, data, type, totalPages, setIsOpen }) => {
                   <Orders item={item} />
                 ) : type === "products" ? (
                   <Products item={item} setIsOpen={setIsOpen} />
+                ) : type === "suppliers" ? (
+                  <Suppliers item={item} setIsOpen={setIsOpen} />
                 ) : null}
               </>
             ))}

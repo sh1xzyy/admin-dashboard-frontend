@@ -3,6 +3,7 @@ import authReducer from "../entities/auth/slice.js";
 import dashboardReducer from "../entities/dashboard/slice.js";
 import ordersReducer from "../entities/orders/slice.js";
 import productsReducer from "../entities/products/slice.js";
+import suppliersReducer from "../entities/suppliers/slice.js";
 import {
   persistStore,
   persistReducer,
@@ -29,6 +30,7 @@ export const store = configureStore({
     dashboard: dashboardReducer,
     orders: ordersReducer,
     products: productsReducer,
+    suppliers: suppliersReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
