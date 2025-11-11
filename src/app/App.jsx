@@ -3,9 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import Loader from "../shared/ui/Loader/Loader";
 import SideBar from "../components/SideBar/SideBar";
 import Header from "../components/Header/Header";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../entities/auth/selectors";
 import useWindowWidth from "../shared/hooks/useWindowWidth";
+import { refreshThunk } from "../entities/auth/operations";
 
 const DashboardPage = lazy(() =>
   import("../pages/DashboardPage/DashboardPage")
@@ -26,21 +27,19 @@ const SharedLayoutPage = lazy(() =>
 function App() {
   const { windowWidth } = useWindowWidth();
   const [isSidePartOpen, setIsSidePartOpen] = useState(windowWidth >= 1440);
-
-  console.log(isSidePartOpen);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setIsSidePartOpen(windowWidth >= 1440);
   }, [windowWidth]);
 
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  // const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   (() => {
-  //     dispatch(refreshThunk());
-  //   })();
-  // }, [dispatch]);
+  useEffect(() => {
+    (() => {
+      dispatch(refreshThunk());
+    })();
+  }, [dispatch]);
 
   return (
     <>
@@ -64,3 +63,5 @@ function App() {
 }
 
 export default App;
+
+//
