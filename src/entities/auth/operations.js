@@ -17,9 +17,7 @@ export const refreshThunk = createAsyncThunk(
   "/user/refresh",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await authInstance.post("/user/refresh", null, {
-        withCredentials: true,
-      });
+      const response = await authInstance.post("/user/refresh");
       return response.data;
     } catch (error) {
       return rejectWithValue(error?.response?.data?.data?.message);
