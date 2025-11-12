@@ -26,14 +26,15 @@ const CustomersPage = () => {
     <div className={css.pageWrapper}>
       <div className="container">
         <CustomersForm />
-        <TableCard
-          title="All customers"
-          data={customers}
-          type="customers"
-          totalPages={totalPages}
-          setPage={setPage}
-        />
       </div>
+
+      <TableCard
+        title="All customers"
+        data={customers}
+        type="customers"
+        setPage={setPage}
+        totalPages={totalPages}
+      />
     </div>
   );
 };

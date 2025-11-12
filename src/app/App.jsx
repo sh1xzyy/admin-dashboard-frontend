@@ -6,7 +6,7 @@ import Header from "../components/Header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../entities/auth/selectors";
 import useWindowWidth from "../shared/hooks/useWindowWidth";
-import { refreshThunk } from "../entities/auth/operations";
+import { getUserInfoThunk, refreshThunk } from "../entities/auth/operations";
 
 const DashboardPage = lazy(() =>
   import("../pages/DashboardPage/DashboardPage")
@@ -36,8 +36,9 @@ function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    (() => {
-      dispatch(refreshThunk());
+    (async () => {
+      await dispatch(refreshThunk()).unwrap();
+      dispatch(getUserInfoThunk());
     })();
   }, [dispatch]);
 

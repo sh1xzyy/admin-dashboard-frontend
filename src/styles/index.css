@@ -105,6 +105,14 @@ select:focus {
     max-width: 1440px;
   }
 
+  .logoContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 40px 0 120px;
+  }
+
   .container {
     padding: 0 40px 0 120px;
   }
