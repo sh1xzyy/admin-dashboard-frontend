@@ -5,6 +5,7 @@ import css from "./Header.module.css";
 import Burger from "./assets/burger.svg?react";
 import { getPath } from "./shared/path/getPath";
 import LogoutButton from "../../shared/ui/LogoutButton/LogoutButton";
+import LogoText from "../../shared/ui/Logo/LogoText";
 
 const Header = ({ setIsSidePartOpen }) => {
   const { windowWidth } = useWindowWidth();
@@ -14,6 +15,15 @@ const Header = ({ setIsSidePartOpen }) => {
 
   return (
     <div className={css.header}>
+      {windowWidth >= 1440 && (
+        <div className={css.logoDesktopWrapper}>
+          <Logo />
+          <div className="logoContainer">
+            <LogoText currentPage={getPath(path)} />
+            <LogoutButton />
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className={css.wrapper}>
           <div className={css.leftSideWrapper}>
@@ -27,10 +37,13 @@ const Header = ({ setIsSidePartOpen }) => {
               </button>
             )}
 
-            <Logo currentPage={getPath(path)} />
+            {windowWidth < 1440 && (
+              <div className={css.logoWrapper}>
+                <Logo />
+                <LogoText currentPage={getPath(path)} />
+              </div>
+            )}
           </div>
-
-          {windowWidth >= 1440 && <LogoutButton />}
         </div>
       </div>
     </div>

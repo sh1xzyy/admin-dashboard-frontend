@@ -34,7 +34,7 @@ const authSlice = createSlice({
         return initialState;
       })
       .addCase(getUserInfoThunk.fulfilled, (state, action) => {
-        state.user = action.payload.data.user;
+        state.user = action.payload.data;
       })
       .addMatcher(
         isAnyOf(

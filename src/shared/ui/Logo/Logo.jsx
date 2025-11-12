@@ -2,9 +2,7 @@ import clsx from "clsx";
 import css from "./Logo.module.css";
 import { Link } from "react-router-dom";
 
-const Logo = ({ variant, currentPage }) => {
-  const adminsEmail = "vendor@gmail.com";
-
+const Logo = ({ variant }) => {
   return (
     <Link
       className={clsx(
@@ -41,18 +39,8 @@ const Logo = ({ variant, currentPage }) => {
         </picture>
       )}
 
-      {variant === "auth" ? (
-        <span className={css.authLogoText}>E-pharmacy</span>
-      ) : (
-        <div className={css.commonLogoTextWrapper}>
-          <span className={css.commonLogoText}>Medicine store</span>
-          <div className={css.subtitle}>
-            <span>{currentPage}</span>
-            <span>&nbsp;|&nbsp;</span>
-            <span>{adminsEmail}</span>
-          </div>
-        </div>
-      )}
+      {variant === "auth" &&
+        (<span className={css.authLogoText}>E-pharmacy</span>)()}
     </Link>
   );
 };

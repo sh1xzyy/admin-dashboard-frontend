@@ -1,8 +1,11 @@
 .dotWrapper {
+  position: absolute;
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 20px;
+  left: 50%;
+  bottom: 110px;
+  transform: translateX(-50%);
 }
 
 .dotButton {
@@ -17,5 +20,17 @@
   background-color: #e7f1ed !important;
   &.active {
     background-color: #59b17a !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dotWrapper {
+    bottom: 258px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .dotWrapper {
+    bottom: -35px;
   }
 }
