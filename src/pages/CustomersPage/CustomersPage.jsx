@@ -23,7 +23,7 @@ const CustomersPage = () => {
   }, [dispatch, page]);
 
   return (
-    <div className={css.pageWrapper}>
+    <div className={css.page}>
       <div className="container">
         <CustomersForm />
       </div>

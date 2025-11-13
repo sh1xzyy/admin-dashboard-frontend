@@ -1,57 +1,15 @@
-.pageWrapper {
-  padding: 20px 0 80px 0;
-}
-
-.tableContainer {
-  margin: 0 auto;
-  max-width: 375px;
-  height: 608px;
-  overflow-x: auto;
-}
-
-.tableWrapper {
-  width: 671px;
-}
-
-.tableContainer::-webkit-scrollbar {
-  cursor: pointer;
-  height: 10px;
-}
-
-.tableContainer::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-  border-radius: 14px;
-}
-
-.tableContainer::-webkit-scrollbar-thumb {
-  background: #e6e6e6;
-  border-radius: 14px;
+.page {
+  padding: 40px 0 168px 0;
 }
 
 @media screen and (min-width: 768px) {
-  .pageWrapper {
-    padding: 20px 0 40px 0;
-  }
-
-  .tableContainer {
-    max-width: 768px;
-    height: 798px;
-  }
-
-  .tableWrapper {
-    width: 960px;
+  .page {
+    padding: 50px 0 328px 0;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .tableContainer {
-    max-width: 1440px;
-    padding: 0 40px 0 120px;
-    height: auto;
-  }
-
-  .tableWrapper {
-    width: 100%;
-    overflow-x: visible;
+  .page {
+    padding: 75px 0 40px 0;
   }
 }

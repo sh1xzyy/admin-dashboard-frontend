@@ -3,11 +3,15 @@ import TrashIcon from "./assets/trash.svg?react";
 import css from "./Products.module.css";
 import clsx from "clsx";
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteProductThunk } from "../../../../../entities/products/operations";
+import { getProduct } from "../../../../../entities/products/slice";
+import { selectProduct } from "../../../../../entities/products/selectors";
 
 const Products = ({ item, setIsOpen }) => {
   const dispatch = useDispatch();
+  const product = useSelector(selectProduct);
+  console.log(product);
 
   const handleDelete = async (id) => {
     try {
@@ -28,7 +32,10 @@ const Products = ({ item, setIsOpen }) => {
         <div className={css.actionsWrapper}>
           <button
             className={clsx(css.iconButton, css.edit)}
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              setIsOpen(true);
+              dispatch(getProduct(item._id));
+            }}
           >
             <EditIcon role="img" aria-label="edit icon" />
           </button>

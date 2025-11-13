@@ -1,4 +1,4 @@
-.pageWrapper {
+.page {
   padding-top: 106px;
 }
 
@@ -7,7 +7,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .pageWrapper {
+  .page {
     padding-top: 168px;
   }
   .logoWrapper {
@@ -16,7 +16,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .pageWrapper {
+  .page {
     padding-top: 226px;
     display: grid;
     grid-template-columns: 614px 1fr;

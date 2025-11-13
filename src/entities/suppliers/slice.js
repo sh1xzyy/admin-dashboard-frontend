@@ -11,12 +11,21 @@ const initialState = {
     total: 0,
     totalPages: 0,
   },
+  supplier: {},
   isLoading: false,
 };
 
 const suppliersSlice = createSlice({
   name: "suppliersSlice",
   initialState,
+  reducers: {
+    getSupplier: (state, action) => {
+      const supplierId = action.payload;
+      state.supplier = state.suppliers.suppliers.find(
+        (el) => el._id === supplierId
+      );
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(getSuppliersThunk.fulfilled, (state, action) => {
@@ -53,3 +62,4 @@ const suppliersSlice = createSlice({
 });
 
 export default suppliersSlice.reducer;
+export const { getSupplier } = suppliersSlice.actions;

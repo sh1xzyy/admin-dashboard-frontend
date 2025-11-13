@@ -4,13 +4,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import css from "./UpdateProduct.module.css";
 import Button from "../../../Button/Button";
 import CategorySelector from "../../../TableCard/ui/CategorySelector/CategorySelector";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getProductsThunk,
   updateProductThunk,
 } from "../../../../../entities/products/operations";
 import toast from "react-hot-toast";
 import { productSchema } from "../schema/productSchema";
+import { selectProduct } from "../../../../../entities/products/selectors";
 
 const categories = [
   "Medicine",
@@ -26,6 +27,8 @@ const categories = [
 
 const UpdateProduct = ({ setIsOpen }) => {
   const dispatch = useDispatch();
+  const product = useSelector(selectProduct);
+
   const {
     register,
     handleSubmit,
@@ -33,6 +36,13 @@ const UpdateProduct = ({ setIsOpen }) => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(productSchema),
+    defaultValues: {
+      name: product.name || "",
+      category: product.category || "",
+      suppliers: product.suppliers || "",
+      stock: product.stock || "",
+      price: product.price || "",
+    },
   });
 
   const onSubmit = async (values) => {

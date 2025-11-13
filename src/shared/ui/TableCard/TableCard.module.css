@@ -48,10 +48,6 @@
   }
 }
 
-.wrapper {
-  position: relative;
-}
-
 .tableContainer {
   margin: 0 auto;
   max-width: 335px;

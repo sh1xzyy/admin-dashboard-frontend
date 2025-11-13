@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import css from "./UpdateSupplier.module.css";
 import Button from "../../../Button/Button";
 import CategorySelector from "../../../TableCard/ui/CategorySelector/CategorySelector";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import {
   getSuppliersThunk,
@@ -12,11 +12,16 @@ import {
 } from "../../../../../entities/suppliers/operations";
 import { supplierSchema } from "../schema/supplierSchema";
 import CustomDatePicker from "../../../TableCard/ui/CustomDatePicker/CustomDatePicker";
+import { selectSupplier } from "../../../../../entities/suppliers/selectors";
+import dayjs from "dayjs";
 
 const statuses = ["Active", "Deactive"];
 
 const UpdateSupplier = ({ setIsOpen }) => {
   const dispatch = useDispatch();
+  const supplier = useSelector(selectSupplier);
+  console.log(supplier);
+
   const {
     register,
     handleSubmit,
@@ -24,12 +29,24 @@ const UpdateSupplier = ({ setIsOpen }) => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(supplierSchema),
+    defaultValues: {
+      name: supplier.name || "",
+      address: supplier.address || "",
+      suppliers: supplier.suppliers || "",
+      date: supplier.date ? dayjs(supplier.date) : null,
+      amount: supplier.amount || "",
+      status: supplier.status || "",
+    },
   });
 
   const onSubmit = async (values) => {
     try {
+      const formattedValues = {
+        ...values,
+        date: values.date ? dayjs(values.date).format("YYYY-MM-DD") : "",
+      };
       await dispatch(
-        updateSupplierThunk({ id: "6909cad672bc23ff51893c1d", body: values })
+        updateSupplierThunk({ id: supplier._id, body: formattedValues })
       ).unwrap();
       await dispatch(getSuppliersThunk()).unwrap();
       setIsOpen(false);
