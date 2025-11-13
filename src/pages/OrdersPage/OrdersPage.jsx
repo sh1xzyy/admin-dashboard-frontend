@@ -26,14 +26,15 @@ const OrdersPage = () => {
     <div className={css.page}>
       <div className="container">
         <OrdersForm />
-        <TableCard
-          title="All orders"
-          data={orders}
-          type="orders"
-          totalPages={totalPages}
-          setPage={setPage}
-        />
       </div>
+
+      <TableCard
+        title="All orders"
+        data={orders}
+        type="orders"
+        totalPages={totalPages}
+        setPage={setPage}
+      />
     </div>
   );
 };

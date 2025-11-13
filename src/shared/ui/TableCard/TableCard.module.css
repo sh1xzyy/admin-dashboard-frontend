@@ -57,6 +57,7 @@
   max-width: 335px;
   height: 608px;
   overflow-x: auto;
+  position: relative;
 }
 
 .tableWrapper {

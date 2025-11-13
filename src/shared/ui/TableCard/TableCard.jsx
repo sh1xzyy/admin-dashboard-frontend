@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { LABELS } from "./shared/data/labels";
 import css from "./TableCard.module.css";
 import Customers from "./ui/Customers/Customers";
@@ -8,6 +7,7 @@ import Products from "./ui/Products/Products";
 import RecentCustomers from "./ui/RecentCustomers/RecentCustomers";
 import Suppliers from "./ui/Suppliers/Suppliers";
 import DotPagination from "./ui/DotPagination/DotPagination";
+import clsx from "clsx";
 
 const TableCard = ({ title, data, type, setIsOpen, totalPages, setPage }) => {
   const labelsIndex = LABELS.findIndex((item) => item.type === type);
@@ -15,23 +15,27 @@ const TableCard = ({ title, data, type, setIsOpen, totalPages, setPage }) => {
 
   return (
     <div className={css.wrapper}>
-      <div className={css.tableContainer}>
-        <div className={css.tableWrapper}>
+      <div
+        className={clsx(
+          type === "dashboard" || type === "income/expenses"
+            ? css.defaultTableContainer
+            : css.tableContainer
+        )}
+      >
+        <div
+          className={clsx(
+            type === "dashboard" || type === "income/expenses"
+              ? css.defaultTableWrapper
+              : css.tableWrapper
+          )}
+        >
           <div className={css.tableCard}>
             <div className={css.titleWrapper}>
               <h2 className={css.title}>{title}</h2>
             </div>
 
             <div className={css.contentWrapper}>
-              <table
-                className={clsx(
-                  css.table,
-                  type === "orders" && css.orders,
-                  type === "products" && css.products,
-                  type === "suppliers" && css.suppliers,
-                  type === "customers" && css.customers
-                )}
-              >
+              <table className={css.table}>
                 <thead>
                   <tr>
                     {headers.map((label, i) => (

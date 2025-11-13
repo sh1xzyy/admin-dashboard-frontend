@@ -39,15 +39,16 @@ const ProductsPage = () => {
           <ProductsForm />
           <AddProductButton setIsOpen={setIsAddProductModalOpen} />
         </div>
-        <TableCard
-          title="All products"
-          data={products}
-          type="products"
-          totalPages={totalPages}
-          setIsOpen={setIsEditProductModalOpen}
-          setPage={setPage}
-        />
       </div>
+
+      <TableCard
+        title="All products"
+        data={products}
+        type="products"
+        totalPages={totalPages}
+        setIsOpen={setIsEditProductModalOpen}
+        setPage={setPage}
+      />
     </div>
   );
 };
