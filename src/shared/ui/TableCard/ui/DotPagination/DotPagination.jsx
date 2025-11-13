@@ -10,7 +10,6 @@ const DotPagination = ({ total = 5, setPage }) => {
         <button
           key={index}
           className={clsx(css.dotButton, index === active && css.active)}
-          minimal
           onClick={() => {
             setActive(index);
             setPage(index + 1);

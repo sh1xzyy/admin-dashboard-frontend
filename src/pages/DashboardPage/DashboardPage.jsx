@@ -23,7 +23,7 @@ const DashboardPage = () => {
   }, [dispatch]);
 
   return (
-    <div className={css.pageWrapper}>
+    <div className={css.page}>
       <div className="container">
         <div className={css.cardsWrapper}>
           <SmallCard number={allProducts} type="products" />

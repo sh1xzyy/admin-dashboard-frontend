@@ -4,33 +4,33 @@
   justify-content: center;
   gap: 8px;
   left: 50%;
-  bottom: 110px;
+  bottom: 237px;
   transform: translateX(-50%);
 }
 
 .dotButton {
-  width: 16px !important;
-  height: 16px !important;
-  border-radius: 50% !important;
-  padding: 0 !important;
-  min-width: 16px !important;
-  min-height: 16px !important;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  padding: 0;
+  min-width: 16px;
+  min-height: 16px;
   outline: none;
   transition: background-color 250ms linear;
-  background-color: #e7f1ed !important;
+  background-color: #e7f1ed;
   &.active {
-    background-color: #59b17a !important;
+    background-color: #59b17a;
   }
 }
 
 @media screen and (min-width: 768px) {
   .dotWrapper {
-    bottom: 258px;
+    bottom: 185px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .dotWrapper {
-    bottom: -35px;
+    bottom: 160px;
   }
 }

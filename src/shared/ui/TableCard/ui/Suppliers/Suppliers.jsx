@@ -1,8 +1,15 @@
 import EditIcon from "./assets/edit.svg?react";
 import css from "./Suppliers.module.css";
 import clsx from "clsx";
+import { useDispatch, useSelector } from "react-redux";
+import { selectSupplier } from "../../../../../entities/suppliers/selectors.js";
+import { getSupplier } from "../../../../../entities/suppliers/slice.js";
 
 const Suppliers = ({ item, setIsOpen }) => {
+  const dispatch = useDispatch();
+  const supplier = useSelector(selectSupplier);
+  console.log("supplier", supplier);
+
   return (
     <tr className={css.tr} key={item._id}>
       <td className={css.td}>{item?.name}</td>
@@ -21,7 +28,13 @@ const Suppliers = ({ item, setIsOpen }) => {
         </div>
       </td>
       <td className={css.td}>
-        <button className={css.button} onClick={() => setIsOpen(true)}>
+        <button
+          className={css.button}
+          onClick={() => {
+            setIsOpen(true);
+            dispatch(getSupplier(item._id));
+          }}
+        >
           <div className={css.btnContentWrapper}>
             <EditIcon role="img" aria-label="edit icon" />
             <span className={css.buttonText}>Edit</span>

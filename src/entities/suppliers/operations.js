@@ -50,8 +50,7 @@ export const updateSupplierThunk = createAsyncThunk(
       if (!accessToken)
         return thunkAPI.rejectWithValue("Access token not found");
 
-      const response = await authInstance.put(`/suppliers/${id}`, {
-        body,
+      const response = await authInstance.put(`/suppliers/${id}`, body, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

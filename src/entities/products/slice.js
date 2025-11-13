@@ -12,12 +12,21 @@ const initialState = {
     total: 0,
     totalPages: 0,
   },
+  product: {},
   isLoading: false,
 };
 
 const productsSlice = createSlice({
   name: "productsSlice",
   initialState,
+  reducers: {
+    getProduct: (state, action) => {
+      const productId = action.payload;
+      state.product = state.products.products.find(
+        (el) => el._id === productId
+      );
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(getProductsThunk.fulfilled, (state, action) => {
@@ -62,3 +71,4 @@ const productsSlice = createSlice({
 });
 
 export default productsSlice.reducer;
+export const { getProduct } = productsSlice.actions;

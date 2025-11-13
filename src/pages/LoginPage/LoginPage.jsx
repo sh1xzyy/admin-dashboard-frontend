@@ -8,7 +8,7 @@ const LoginPage = () => {
       <div className={css.logoWrapper}>
         <Logo variant="auth" />
       </div>
-      <div className={css.pageWrapper}>
+      <div className={css.page}>
         <HealthCareCard />
         <LoginForm />
       </div>
