@@ -1,10 +1,10 @@
 import css from "./Loader.module.css";
-import { Spinner } from "@blueprintjs/core";
+import { PulseLoader } from "react-spinners";
 
 const Loader = () => {
   return (
     <div className={css.wrapper}>
-      <Spinner size={50} intent="primary" />
+      <PulseLoader />
     </div>
   );
 };

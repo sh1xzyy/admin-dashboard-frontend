@@ -1,4 +1,3 @@
-import { Button } from "@blueprintjs/core";
 import EditIcon from "./assets/edit.svg?react";
 import css from "./Suppliers.module.css";
 import clsx from "clsx";
@@ -22,12 +21,12 @@ const Suppliers = ({ item, setIsOpen }) => {
         </div>
       </td>
       <td className={css.td}>
-        <Button className={css.button} onClick={() => setIsOpen(true)}>
+        <button className={css.button} onClick={() => setIsOpen(true)}>
           <div className={css.btnContentWrapper}>
             <EditIcon role="img" aria-label="edit icon" />
             <span className={css.buttonText}>Edit</span>
           </div>
-        </Button>
+        </button>
       </td>
     </tr>
   );

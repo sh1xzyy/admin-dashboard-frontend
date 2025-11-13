@@ -28,16 +28,13 @@ const ProductsPage = () => {
   return (
     <div className={css.page}>
       <div className="container">
-        <BaseModal
-          isOpen={isAddProductModalOpen}
-          setIsOpen={setIsAddProductModalOpen}
-          type="addProduct"
-        />
-        <BaseModal
-          isOpen={isEditProductModalOpen}
-          setIsOpen={setIsEditProductModalOpen}
-          type="editProduct"
-        />
+        {isAddProductModalOpen && (
+          <BaseModal setIsOpen={setIsAddProductModalOpen} type="addProduct" />
+        )}
+        {isEditProductModalOpen && (
+          <BaseModal setIsOpen={setIsEditProductModalOpen} type="editProduct" />
+        )}
+
         <div className={css.headerActionsWrapper}>
           <ProductsForm />
           <AddProductButton setIsOpen={setIsAddProductModalOpen} />

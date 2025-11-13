@@ -1,4 +1,3 @@
-import { Button } from "@blueprintjs/core";
 import css from "./DotPagination.module.css";
 import { useState } from "react";
 import clsx from "clsx";
@@ -8,7 +7,7 @@ const DotPagination = ({ total = 5, setPage }) => {
   return (
     <div className={css.dotWrapper}>
       {Array.from({ length: total }).map((_, index) => (
-        <Button
+        <button
           key={index}
           className={clsx(css.dotButton, index === active && css.active)}
           minimal

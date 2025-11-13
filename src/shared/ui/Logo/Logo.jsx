@@ -39,8 +39,9 @@ const Logo = ({ variant }) => {
         </picture>
       )}
 
-      {variant === "auth" &&
-        (<span className={css.authLogoText}>E-pharmacy</span>)()}
+      {variant === "auth" && (
+        <span className={css.authLogoText}>E-pharmacy</span>
+      )}
     </Link>
   );
 };
