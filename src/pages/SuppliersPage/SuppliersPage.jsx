@@ -42,15 +42,16 @@ const SuppliersPage = () => {
           <ProductsForm />
           <AddProductButton setIsOpen={setIsAddProductModalOpen} />
         </div>
-        <TableCard
-          title="All suppliers"
-          data={suppliers}
-          type="suppliers"
-          totalPages={totalPages}
-          setIsOpen={setIsEditProductModalOpen}
-          setPage={setPage}
-        />
       </div>
+
+      <TableCard
+        title="All suppliers"
+        data={suppliers}
+        type="suppliers"
+        totalPages={totalPages}
+        setIsOpen={setIsEditProductModalOpen}
+        setPage={setPage}
+      />
     </div>
   );
 };

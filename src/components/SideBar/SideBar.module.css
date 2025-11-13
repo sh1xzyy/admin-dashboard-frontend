@@ -24,6 +24,7 @@
   border-right: 1px solid rgba(29, 30, 33, 0.1);
   border-top: 1px solid rgba(29, 30, 33, 0.1);
   background-color: #f7f8fa;
+  z-index: 1000;
 }
 
 .closeButton {
