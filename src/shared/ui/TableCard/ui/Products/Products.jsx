@@ -1,4 +1,3 @@
-import { Button } from "@blueprintjs/core";
 import EditIcon from "./assets/edit.svg?react";
 import TrashIcon from "./assets/trash.svg?react";
 import css from "./Products.module.css";
@@ -27,18 +26,18 @@ const Products = ({ item, setIsOpen }) => {
       <td className={css.td}>{item?.price}</td>
       <td className={css.td}>
         <div className={css.actionsWrapper}>
-          <Button
+          <button
             className={clsx(css.iconButton, css.edit)}
             onClick={() => setIsOpen(true)}
           >
             <EditIcon role="img" aria-label="edit icon" />
-          </Button>
-          <Button
+          </button>
+          <button
             className={clsx(css.iconButton, css.trash)}
             onClick={() => handleDelete(item?._id)}
           >
             <TrashIcon role="img" aria-label="trash icon" />
-          </Button>
+          </button>
         </div>
       </td>
     </tr>

@@ -28,16 +28,16 @@ const SuppliersPage = () => {
   return (
     <div className={css.page}>
       <div className="container">
-        <BaseModal
-          isOpen={isAddProductModalOpen}
-          setIsOpen={setIsAddProductModalOpen}
-          type="addSupplier"
-        />
-        <BaseModal
-          isOpen={isEditProductModalOpen}
-          setIsOpen={setIsEditProductModalOpen}
-          type="editSupplier"
-        />
+        {isAddProductModalOpen && (
+          <BaseModal setIsOpen={setIsAddProductModalOpen} type="addSupplier" />
+        )}
+        {isEditProductModalOpen && (
+          <BaseModal
+            setIsOpen={setIsEditProductModalOpen}
+            type="editSupplier"
+          />
+        )}
+
         <div className={css.headerActionsWrapper}>
           <ProductsForm />
           <AddProductButton setIsOpen={setIsAddProductModalOpen} />

@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Loader from "../shared/ui/Loader/Loader";
 import SideBar from "../components/SideBar/SideBar";
 import Header from "../components/Header/Header";
@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../entities/auth/selectors";
 import useWindowWidth from "../shared/hooks/useWindowWidth";
 import { getUserInfoThunk, refreshThunk } from "../entities/auth/operations";
+import RestrictedRoutes from "../shared/routes/RestrictedRoutes";
+import PrivateRoutes from "../shared/routes/PrivateRoutes";
 
 const DashboardPage = lazy(() =>
   import("../pages/DashboardPage/DashboardPage")
@@ -30,17 +32,17 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setIsSidePartOpen(windowWidth >= 1440);
-  }, [windowWidth]);
-
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  useEffect(() => {
     (async () => {
       await dispatch(refreshThunk()).unwrap();
       dispatch(getUserInfoThunk());
     })();
   }, [dispatch]);
+
+  useEffect(() => {
+    setIsSidePartOpen(windowWidth >= 1440);
+  }, [windowWidth]);
+
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <>
@@ -50,13 +52,62 @@ function App() {
       )}
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<SharedLayoutPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/orders" element={<OrdersPage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/customers" element={<CustomersPage />} />
-          <Route path="/suppliers" element={<SuppliersPage />} />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoutes redirectTo="/dashboard">
+                <LoginPage />
+              </RestrictedRoutes>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <PrivateRoutes redirectTo="/login">
+                <Navigate to="/dashboard" />
+              </PrivateRoutes>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoutes redirectTo="/login">
+                <DashboardPage />
+              </PrivateRoutes>
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <PrivateRoutes redirectTo="/login">
+                <OrdersPage />
+              </PrivateRoutes>
+            }
+          />
+          <Route
+            path="/products"
+            element={
+              <PrivateRoutes redirectTo="/login">
+                <ProductsPage />
+              </PrivateRoutes>
+            }
+          />
+          <Route
+            path="/customers"
+            element={
+              <PrivateRoutes redirectTo="/login">
+                <CustomersPage />
+              </PrivateRoutes>
+            }
+          />
+          <Route
+            path="/suppliers"
+            element={
+              <PrivateRoutes redirectTo="/login">
+                <SuppliersPage />
+              </PrivateRoutes>
+            }
+          />
         </Routes>
       </Suspense>
     </>
