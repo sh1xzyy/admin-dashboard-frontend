@@ -7,7 +7,8 @@ const Button = ({ variant, text, ...rest }) => {
       className={clsx(
         css.button,
         variant === "primary" && css.primary,
-        variant === "secondary" && css.secondary
+        variant === "secondary" && css.secondary,
+        variant === "outline" && css.outline
       )}
       {...rest}
     >
