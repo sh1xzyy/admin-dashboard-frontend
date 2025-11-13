@@ -1,16 +1,77 @@
-# React + Vite
+# 🧭 Admin Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is an **Admin Panel** for managing orders, products, suppliers, and customers.  
+The project provides an intuitive interface to **view, filter, add, edit, and delete** data.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### 📊 Dashboard  
+The main page of the admin panel displaying:
+- **Recent Customers** — latest 5 customers  
+- **Past Customers** — previous customer records  
+- **Income & Expenses** — income and expense statistics  
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### 📦 Orders  
+Page showing a list of **all orders**.  
+Orders can be filtered by name.
 
-## Expanding the ESLint configuration
+### 🛒 Products  
+Page for managing products:
+- View all products  
+- Add new products  
+- Edit existing products  
+- Delete products  
+- Filter products by name  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🚚 Suppliers  
+Page for managing suppliers:
+- View all suppliers  
+- Add a new supplier  
+- Edit supplier information  
+- Filter suppliers by name  
+
+### 👥 Customers  
+Page for managing customers:
+- View all customers  
+- Filter customers by name  
+
+---
+
+## ⚙️ Technologies
+
+Built with modern web development tools:
+
+- **React** — for building the user interface  
+- **TypeScript** — for type safety and cleaner code  
+- **Tailwind CSS** — for modern and responsive styling  
+- **React Router / Next.js (if applicable)** — for routing between pages  
+- **Context API / Redux (if applicable)** — for state management  
+
+---
+
+## 🧩 Key Highlights
+
+- Intuitive and responsive UI  
+- Full CRUD operations for products and suppliers  
+- Table filtering by name  
+- Modern, minimal design  
+- Easy navigation across sections  
+
+---
+
+## 💻 Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/<your-username>/<repo-name>.git
+
+# Navigate to the project folder
+cd <repo-name>
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
