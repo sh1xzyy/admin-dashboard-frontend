@@ -81,9 +81,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .tr {
-    height: 76px;
-  }
   .td {
     font-size: 16px;
     line-height: 1.125;

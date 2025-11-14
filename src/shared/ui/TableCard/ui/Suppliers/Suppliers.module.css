@@ -50,8 +50,8 @@
   height: 34px;
   border: 1px solid rgba(89, 177, 122, 0.5);
   border-radius: 30px;
-  box-shadow: none !important;
-  background-color: transparent !important;
+  box-shadow: none;
+  background-color: transparent;
 }
 
 .btnContentWrapper {
@@ -68,9 +68,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .tr {
-    height: 76px;
-  }
   .td {
     font-size: 16px;
     line-height: 1.125;

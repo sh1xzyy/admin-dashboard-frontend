@@ -33,11 +33,14 @@
   &:not(:last-child) {
     border-bottom: 1px solid rgba(29, 30, 33, 0.1);
   }
-  &.small {
+  &.finances {
     height: 51px;
   }
-  &.big {
+  &.average {
     height: 74px;
+  }
+  &.big {
+    height: 76px;
   }
 }
 
@@ -97,6 +100,18 @@
       padding-left: 20px;
     }
   }
+  .tr {
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(29, 30, 33, 0.1);
+    }
+    &.small {
+      height: 65px;
+    }
+    &.big {
+      height: 76px;
+    }
+  }
+
   .tableContainer {
     max-width: 704px;
     height: 798px;

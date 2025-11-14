@@ -107,8 +107,9 @@ select:focus {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 1440px;
-    padding: 0 40px 0 120px;
+    max-width: 1390px;
+    padding: 0 40px 0 70px;
+    margin: 0 auto;
   }
 
   .container {
