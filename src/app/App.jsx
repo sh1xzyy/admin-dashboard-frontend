@@ -43,7 +43,7 @@ function App() {
   }, [windowWidth]);
 
   const isLoggedIn = useSelector(selectIsLoggedIn);
-
+  // for fix
   return (
     <>
       {isLoggedIn && <Header setIsSidePartOpen={setIsSidePartOpen} />}

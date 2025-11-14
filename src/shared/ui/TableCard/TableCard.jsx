@@ -59,7 +59,7 @@ const TableCard = ({
                     <tr
                       className={clsx(
                         css.tr,
-                        type === "finances" ? css.small : css.big
+                        type === "income/expenses" ? css.small : css.big
                       )}
                       key={item._id}
                     >
