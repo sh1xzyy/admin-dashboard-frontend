@@ -2,8 +2,9 @@ import { useForm } from "react-hook-form";
 import css from "./CustomersForm.module.css";
 import BaseInput from "../../../shared/ui/Input/BaseInput/BaseInput";
 import Button from "../../../shared/ui/Button/Button";
-import FilterIcon from "../assets/filter.svg?react";
 import { useDispatch } from "react-redux";
+import FilterIcon from "../assets/filter.svg?react";
+
 import toast from "react-hot-toast";
 import { getCustomersThunk } from "../../../entities/customers/operations";
 

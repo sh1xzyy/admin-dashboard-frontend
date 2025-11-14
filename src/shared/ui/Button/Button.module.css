@@ -4,6 +4,10 @@
   transition: background-color 250ms linear, color 250ms linear;
 
   &.primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.28571;

@@ -20,8 +20,6 @@ const statuses = ["Active", "Deactive"];
 const UpdateSupplier = ({ setIsOpen }) => {
   const dispatch = useDispatch();
   const supplier = useSelector(selectSupplier);
-  console.log(supplier);
-
   const {
     register,
     handleSubmit,
