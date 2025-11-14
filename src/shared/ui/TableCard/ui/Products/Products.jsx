@@ -3,15 +3,12 @@ import TrashIcon from "./assets/trash.svg?react";
 import css from "./Products.module.css";
 import clsx from "clsx";
 import toast from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteProductThunk } from "../../../../../entities/products/operations";
 import { getProduct } from "../../../../../entities/products/slice";
-import { selectProduct } from "../../../../../entities/products/selectors";
 
 const Products = ({ item, setIsOpen }) => {
   const dispatch = useDispatch();
-  const product = useSelector(selectProduct);
-  console.log(product);
 
   const handleDelete = async (id) => {
     try {

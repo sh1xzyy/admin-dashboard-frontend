@@ -32,9 +32,6 @@ const AddSupplier = ({ setIsOpen }) => {
         ...values,
         date: values.date ? values.date.format("YYYY-MM-DD") : null,
       };
-
-      console.log(formattedValues);
-
       await dispatch(addSupplierThunk(formattedValues)).unwrap();
       await dispatch(getSuppliersThunk()).unwrap();
       setIsOpen(false);

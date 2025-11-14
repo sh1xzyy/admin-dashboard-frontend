@@ -1,14 +1,11 @@
 import EditIcon from "./assets/edit.svg?react";
 import css from "./Suppliers.module.css";
 import clsx from "clsx";
-import { useDispatch, useSelector } from "react-redux";
-import { selectSupplier } from "../../../../../entities/suppliers/selectors.js";
+import { useDispatch } from "react-redux";
 import { getSupplier } from "../../../../../entities/suppliers/slice.js";
 
 const Suppliers = ({ item, setIsOpen }) => {
   const dispatch = useDispatch();
-  const supplier = useSelector(selectSupplier);
-  console.log("supplier", supplier);
 
   return (
     <tr className={css.tr} key={item._id}>
