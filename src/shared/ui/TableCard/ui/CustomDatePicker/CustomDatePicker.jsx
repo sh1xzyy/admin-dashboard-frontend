@@ -84,17 +84,23 @@ const styles = {
       fontSize: "20px",
     },
   },
+  datePickerWrapper: {
+    position: "relative",
+  },
   errorText: {
-    color: "#d32f2f",
+    fontWeight: 400,
     fontSize: "12px",
-    marginTop: "4px",
-    marginLeft: "14px",
+    lineHeight: 1.5,
+    position: "absolute",
+    bottom: "-16px",
+    left: "18px",
+    color: "#d32f2f",
   },
 };
 
 export default function CustomDatePicker({ value, onChange, error }) {
   return (
-    <div>
+    <div style={styles.datePickerWrapper}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
           value={value}
@@ -111,7 +117,7 @@ export default function CustomDatePicker({ value, onChange, error }) {
           }}
         />
       </LocalizationProvider>
-      {error && <p style={styles.errorText}>{error}</p>}
+      {error && <span style={styles.errorText}>{error}</span>}
     </div>
   );
 }

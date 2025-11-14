@@ -1,7 +1,7 @@
 import css from "./RecentCustomers.module.css";
 const RecentCustomers = ({ item }) => {
   return (
-    <tr className={css.tr} key={item?._id}>
+    <>
       <td className={css.td}>
         <div className={css.userInfo}>
           <img className={css.photo} src={item?.photo} alt={item?.name} />
@@ -10,7 +10,7 @@ const RecentCustomers = ({ item }) => {
       </td>
       <td className={css.td}>{item?.email}</td>
       <td className={css.td}>{item?.spent}</td>
-    </tr>
+    </>
   );
 };
 

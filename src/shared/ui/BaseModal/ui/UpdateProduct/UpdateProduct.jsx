@@ -25,7 +25,7 @@ const categories = [
   "Baby Care",
 ];
 
-const UpdateProduct = ({ setIsOpen }) => {
+const UpdateProduct = ({ setIsOpen, page }) => {
   const dispatch = useDispatch();
   const product = useSelector(selectProduct);
 
@@ -48,9 +48,9 @@ const UpdateProduct = ({ setIsOpen }) => {
   const onSubmit = async (values) => {
     try {
       await dispatch(
-        updateProductThunk({ id: "6909cad672bc23ff51893c1d", body: values })
+        updateProductThunk({ id: product._id, body: values })
       ).unwrap();
-      await dispatch(getProductsThunk()).unwrap();
+      dispatch(getProductsThunk({ page }));
       setIsOpen(false);
       toast.success("Successfully added a product");
     } catch (error) {

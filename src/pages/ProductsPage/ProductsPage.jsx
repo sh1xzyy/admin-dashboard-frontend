@@ -29,10 +29,18 @@ const ProductsPage = () => {
     <div className={css.page}>
       <div className="container">
         {isAddProductModalOpen && (
-          <BaseModal setIsOpen={setIsAddProductModalOpen} type="addProduct" />
+          <BaseModal
+            setIsOpen={setIsAddProductModalOpen}
+            type="addProduct"
+            page={page}
+          />
         )}
         {isEditProductModalOpen && (
-          <BaseModal setIsOpen={setIsEditProductModalOpen} type="editProduct" />
+          <BaseModal
+            setIsOpen={setIsEditProductModalOpen}
+            type="editProduct"
+            page={page}
+          />
         )}
 
         <div className={css.headerActionsWrapper}>
@@ -46,6 +54,7 @@ const ProductsPage = () => {
         data={products}
         type="products"
         totalPages={totalPages}
+        page={page}
         setIsOpen={setIsEditProductModalOpen}
         setPage={setPage}
       />

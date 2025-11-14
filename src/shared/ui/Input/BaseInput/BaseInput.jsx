@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 
 const BaseInput = forwardRef(({ variant, error, ...rest }, ref) => {
   return (
-    <div>
+    <>
       {rest?.label && (
         <label className={css.label} htmlFor={rest?.id}>
           {rest.label}
@@ -22,7 +22,7 @@ const BaseInput = forwardRef(({ variant, error, ...rest }, ref) => {
         />
         {error && <span className={css.error}>{error}</span>}
       </div>
-    </div>
+    </>
   );
 });
 

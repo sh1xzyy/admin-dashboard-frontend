@@ -24,7 +24,7 @@ const categories = [
   "Baby Care",
 ];
 
-const AddProduct = ({ setIsOpen }) => {
+const AddProduct = ({ setIsOpen, page }) => {
   const dispatch = useDispatch();
   const {
     register,
@@ -38,7 +38,7 @@ const AddProduct = ({ setIsOpen }) => {
   const onSubmit = async (values) => {
     try {
       await dispatch(addProductThunk(values)).unwrap();
-      await dispatch(getProductsThunk()).unwrap();
+      dispatch(getProductsThunk({ page }));
       setIsOpen(false);
       toast.success("Successfully added a product");
     } catch (error) {

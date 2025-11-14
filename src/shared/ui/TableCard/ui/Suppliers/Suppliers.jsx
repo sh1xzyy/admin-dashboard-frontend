@@ -8,7 +8,7 @@ const Suppliers = ({ item, setIsOpen }) => {
   const dispatch = useDispatch();
 
   return (
-    <tr className={css.tr} key={item._id}>
+    <>
       <td className={css.td}>{item?.name}</td>
       <td className={css.td}>{item?.address}</td>
       <td className={css.td}>{item?.suppliers}</td>
@@ -38,7 +38,7 @@ const Suppliers = ({ item, setIsOpen }) => {
           </div>
         </button>
       </td>
-    </tr>
+    </>
   );
 };
 

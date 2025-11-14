@@ -17,7 +17,7 @@ import dayjs from "dayjs";
 
 const statuses = ["Active", "Deactive"];
 
-const UpdateSupplier = ({ setIsOpen }) => {
+const UpdateSupplier = ({ setIsOpen, page }) => {
   const dispatch = useDispatch();
   const supplier = useSelector(selectSupplier);
   const {
@@ -46,7 +46,7 @@ const UpdateSupplier = ({ setIsOpen }) => {
       await dispatch(
         updateSupplierThunk({ id: supplier._id, body: formattedValues })
       ).unwrap();
-      await dispatch(getSuppliersThunk()).unwrap();
+      dispatch(getSuppliersThunk({ page }));
       setIsOpen(false);
       toast.success("Successfully added a product");
     } catch (error) {

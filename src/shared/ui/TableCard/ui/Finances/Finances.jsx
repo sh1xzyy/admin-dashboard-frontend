@@ -9,7 +9,7 @@ const Finances = ({ item }) => {
       : item?.type === "Error" && css.error;
 
   return (
-    <tr className={css.tr} key={item?._id}>
+    <>
       <td className={css.td}>
         <div className={clsx(css.label, styleByType)}>
           <span className={clsx(css.type, styleByType)}>{item?.type}</span>
@@ -21,7 +21,7 @@ const Finances = ({ item }) => {
       <td className={css.td}>
         <span className={clsx(css.amount, styleByType)}>{item?.amount}</span>
       </td>
-    </tr>
+    </>
   );
 };
 

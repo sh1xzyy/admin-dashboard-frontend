@@ -83,5 +83,6 @@
     margin-top: 79px;
     padding-top: 40px;
     height: 90vh;
+    z-index: 1000;
   }
 }

@@ -36,7 +36,7 @@ const CategorySelector = forwardRef(
     };
 
     return (
-      <div className={css.selectorContainer}>
+      <div className={css.selectorWrapper}>
         <div className={css.customSelect} ref={dropdownRef}>
           <button
             type="button"
@@ -79,7 +79,7 @@ const CategorySelector = forwardRef(
           </div>
         </div>
 
-        {error && <div className={css.errorMessage}>{error}</div>}
+        {error && <span className={css.errorMessage}>{error}</span>}
       </div>
     );
   }

@@ -9,7 +9,15 @@ import Suppliers from "./ui/Suppliers/Suppliers";
 import DotPagination from "./ui/DotPagination/DotPagination";
 import clsx from "clsx";
 
-const TableCard = ({ title, data, type, setIsOpen, totalPages, setPage }) => {
+const TableCard = ({
+  title,
+  data,
+  page,
+  type,
+  setIsOpen,
+  totalPages,
+  setPage,
+}) => {
   const labelsIndex = LABELS.findIndex((item) => item.type === type);
   const headers = LABELS[labelsIndex].list;
 
@@ -48,7 +56,13 @@ const TableCard = ({ title, data, type, setIsOpen, totalPages, setPage }) => {
 
                 <tbody>
                   {data.map((item) => (
-                    <>
+                    <tr
+                      className={clsx(
+                        css.tr,
+                        type === "finances" ? css.small : css.big
+                      )}
+                      key={item._id}
+                    >
                       {type === "dashboard" ? (
                         <RecentCustomers item={item} />
                       ) : type === "income/expenses" ? (
@@ -56,13 +70,17 @@ const TableCard = ({ title, data, type, setIsOpen, totalPages, setPage }) => {
                       ) : type === "orders" ? (
                         <Orders item={item} />
                       ) : type === "products" ? (
-                        <Products item={item} setIsOpen={setIsOpen} />
+                        <Products
+                          item={item}
+                          setIsOpen={setIsOpen}
+                          page={page}
+                        />
                       ) : type === "suppliers" ? (
                         <Suppliers item={item} setIsOpen={setIsOpen} />
                       ) : (
                         type === "customers" && <Customers item={item} />
                       )}
-                    </>
+                    </tr>
                   ))}
                 </tbody>
               </table>

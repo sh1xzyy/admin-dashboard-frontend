@@ -39,7 +39,10 @@ const SideBar = ({ setIsSidePartOpen }) => {
   const { windowWidth } = useWindowWidth();
 
   return (
-    <div className={css.overlay}>
+    <div
+      className={css.overlay}
+      onClick={() => windowWidth < 1440 && setIsSidePartOpen(false)}
+    >
       <div className={css.sideBar}>
         {windowWidth < 1440 && (
           <button

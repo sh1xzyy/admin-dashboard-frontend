@@ -30,12 +30,17 @@ const SuppliersPage = () => {
     <div className={css.page}>
       <div className="container">
         {isAddProductModalOpen && (
-          <BaseModal setIsOpen={setIsAddProductModalOpen} type="addSupplier" />
+          <BaseModal
+            setIsOpen={setIsAddProductModalOpen}
+            type="addSupplier"
+            page={page}
+          />
         )}
         {isEditProductModalOpen && (
           <BaseModal
             setIsOpen={setIsEditProductModalOpen}
             type="editSupplier"
+            page={page}
           />
         )}
 
