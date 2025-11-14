@@ -29,6 +29,7 @@ const SharedLayoutPage = lazy(() =>
 function App() {
   const { windowWidth } = useWindowWidth();
   const [isSidePartOpen, setIsSidePartOpen] = useState(windowWidth >= 1440);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,8 +43,6 @@ function App() {
     setIsSidePartOpen(windowWidth >= 1440);
   }, [windowWidth]);
 
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  // for fix
   return (
     <>
       {isLoggedIn && <Header setIsSidePartOpen={setIsSidePartOpen} />}
