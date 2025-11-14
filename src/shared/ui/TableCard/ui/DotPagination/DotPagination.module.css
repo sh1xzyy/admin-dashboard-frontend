@@ -4,7 +4,7 @@
   justify-content: center;
   gap: 8px;
   left: 50%;
-  bottom: 237px;
+  bottom: 110px;
   transform: translateX(-50%);
 }
 
@@ -25,12 +25,12 @@
 
 @media screen and (min-width: 768px) {
   .dotWrapper {
-    bottom: 185px;
+    bottom: 258px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .dotWrapper {
-    bottom: 160px;
+    bottom: -36px;
   }
 }

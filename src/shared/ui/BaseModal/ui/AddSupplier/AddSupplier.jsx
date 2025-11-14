@@ -15,7 +15,7 @@ import { supplierSchema } from "../schema/supplierSchema";
 
 const statuses = ["Active", "Deactive"];
 
-const AddSupplier = ({ setIsOpen }) => {
+const AddSupplier = ({ setIsOpen, page }) => {
   const dispatch = useDispatch();
   const {
     register,
@@ -24,6 +24,9 @@ const AddSupplier = ({ setIsOpen }) => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(supplierSchema),
+    defaultValues: {
+      date: null,
+    },
   });
 
   const onSubmit = async (values) => {
@@ -33,7 +36,7 @@ const AddSupplier = ({ setIsOpen }) => {
         date: values.date ? values.date.format("YYYY-MM-DD") : null,
       };
       await dispatch(addSupplierThunk(formattedValues)).unwrap();
-      await dispatch(getSuppliersThunk()).unwrap();
+      dispatch(getSuppliersThunk({ page }));
       setIsOpen(false);
       toast.success("Successfully added supplier");
     } catch (error) {
@@ -61,7 +64,7 @@ const AddSupplier = ({ setIsOpen }) => {
         <BaseInput
           variant="primary"
           type="text"
-          error={errors?.company?.message}
+          error={errors?.suppliers?.message}
           placeholder="Company"
           {...register("suppliers")}
         />

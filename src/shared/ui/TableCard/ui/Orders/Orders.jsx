@@ -12,7 +12,7 @@ const Orders = ({ item }) => {
   };
 
   return (
-    <tr className={css.tr} key={item?._id}>
+    <>
       <td className={css.td}>
         <div className={css.userInfo}>
           <img className={css.photo} src={item?.photo} alt={item?.name} />
@@ -28,7 +28,7 @@ const Orders = ({ item }) => {
           {item?.order_id?.status}
         </div>
       </td>
-    </tr>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import UpdateProduct from "./ui/UpdateProduct/UpdateProduct";
 import UpdateSupplier from "./ui/UpdateSupplier/UpdateSupplier";
 import AddSupplier from "./ui/AddSupplier/AddSupplier";
 
-const BaseModal = ({ setIsOpen, type }) => {
+const BaseModal = ({ setIsOpen, type, page }) => {
   const title = {
     addProduct: "Add a new product",
     editProduct: "Edit data",
@@ -26,13 +26,13 @@ const BaseModal = ({ setIsOpen, type }) => {
         <h2 className={css.title}>{title[type ?? ""]}</h2>
 
         {type === "addProduct" ? (
-          <AddProduct setIsOpen={setIsOpen} />
+          <AddProduct setIsOpen={setIsOpen} page={page} />
         ) : type === "editProduct" ? (
-          <UpdateProduct setIsOpen={setIsOpen} />
+          <UpdateProduct setIsOpen={setIsOpen} page={page} />
         ) : type === "addSupplier" ? (
-          <AddSupplier setIsOpen={setIsOpen} />
+          <AddSupplier setIsOpen={setIsOpen} page={page} />
         ) : type === "editSupplier" ? (
-          <UpdateSupplier setIsOpen={setIsOpen} />
+          <UpdateSupplier setIsOpen={setIsOpen} page={page} />
         ) : null}
       </div>
     </div>

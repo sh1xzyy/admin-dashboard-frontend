@@ -4,22 +4,27 @@ import css from "./Products.module.css";
 import clsx from "clsx";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { deleteProductThunk } from "../../../../../entities/products/operations";
+import {
+  deleteProductThunk,
+  getProductsThunk,
+} from "../../../../../entities/products/operations";
 import { getProduct } from "../../../../../entities/products/slice";
 
-const Products = ({ item, setIsOpen }) => {
+const Products = ({ item, page, setIsOpen }) => {
   const dispatch = useDispatch();
 
   const handleDelete = async (id) => {
     try {
       await dispatch(deleteProductThunk(id)).unwrap();
+      dispatch(getProductsThunk({ page }));
       toast.success("Successfully deleted product");
     } catch (error) {
       toast.error(error);
     }
   };
+
   return (
-    <tr className={css.tr} key={item._id}>
+    <>
       <td className={css.td}>{item?.name}</td>
       <td className={css.td}>{item?.category}</td>
       <td className={css.td}>{item?.stock}</td>
@@ -44,7 +49,7 @@ const Products = ({ item, setIsOpen }) => {
           </button>
         </div>
       </td>
-    </tr>
+    </>
   );
 };
 
